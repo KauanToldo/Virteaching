@@ -1,6 +1,10 @@
 # kleber2024PI
 Projeto Integrador 2024 da turma 3F - Grupo 5
 
-Tema:
+Tema global:
+
+Espaços virtuais e relações sociais.
+
+Subtema:
 
 A Realidade Virtual como Ferramenta de Treinamento Profissional (Examinar como a realidade virtual é aplicada em treinamentos profissionais, como simulações médicas, treinamento de pilotos, e treinamento de habilidades técnicas.)
