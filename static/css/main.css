@@ -1,0 +1,21 @@
+:root {
+    --light-background-color: #F6F9FC;
+    --blue-background-color: #0A2540;
+    --light-blue: #00D4FF;
+    --purple: #635BFF;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+*, *::after, *::before {
+	margin: 0;
+	padding: 0;
+	border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100%;
+    background-color: var(--white);
+}
