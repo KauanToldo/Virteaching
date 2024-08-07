@@ -1,0 +1,27 @@
+#banner-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, var(--blue-background-color), var(--white))
+}
+
+#banner-section div {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    margin-left: 12%;
+}
+
+#banner-section div h1 {
+    font-size: var(--font-size-title);
+    font-weight: 700;
+}
+
+#banner-section div h1 span {
+    color: var(--white);
+}
+
+#banner-section img {
+    margin-top: 5rem;
+}

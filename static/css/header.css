@@ -1,0 +1,24 @@
+header {
+    display: flex;
+    background-color: var(--blue-background-color);
+    padding: 30px 60px;
+    justify-content: space-between;
+}
+
+#logo-name {
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    gap: 20px;
+    font-size: 22px;
+}
+
+#logo-name img {
+    width: 35px;
+}
+
+#header-navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
