@@ -19,8 +19,8 @@
     --light-blue: #635BFF;
     --font-family: "Inter", sans-serif;
     --font-size-text: 18px;
-    --font-size-title: 40px;
-    --font-size-subtitle: 25px
+    --font-size-title: 36px;
+    --font-size-subtitle: 22px
 }
 
 html {
@@ -67,7 +67,15 @@ body {
 
 .title-section {
     color: var(--black);
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     padding-left: 40px;
     font-size: var(--font-size-title);
+}
+
+.text-padding {
+    color: var(--black);
+    padding-bottom: 50px;
+    padding-left: 40px;
+    padding-right: 30%;
+    font-size: var(--font-size-text);
 }

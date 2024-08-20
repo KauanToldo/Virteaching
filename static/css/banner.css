@@ -14,7 +14,7 @@
 }
 
 #banner-section div h1 {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 700;
 }
 
@@ -23,5 +23,6 @@
 }
 
 #banner-section img {
-    margin-top: 5rem;
+    margin-top: 3rem;
+    width: 40em;
 }
