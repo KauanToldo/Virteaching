@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to bottom, var(--blue-background-color), var(--white))
+    background: linear-gradient(to bottom, var(--blue-background-color), var(--light-background-color))
 }
 
 #banner-section div {
