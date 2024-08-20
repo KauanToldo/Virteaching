@@ -1,43 +1,57 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url(/static/css/padding.css);
+@import url('./header.css');
+@import url('./banner.css');
+@import url('./what-rv.css');
+@import url('./espaco.css');
+@import url('./ensino.css');
+@import url('./treinamento.css');
+@import url('./social.css');
+@import url('./vd.css');
+@import url('./chatvr.css');
+@import url('./footer.css');
+@import url('./equipv.css');
 
 :root {
-    --primary-color: #0A2540;
-    --secondary-color: #F6F9FC;
-    --background-color: #FFFFFF;
-    --text-color: #000000;
-    --text-color-second: #635BFF;
+    --blue-background-color: #0A2540;
+    --light-background-color: #F6F9FC;
+    --white: #FFFFFF;
+    --black: #000000;
+    --light-blue: #635BFF;
     --font-family: "Inter", sans-serif;
-    --font-size-text: 22px;
+    --font-size-text: 18px;
     --font-size-title: 50px;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
     margin: 0;
     padding: 0;
-    font-family: inherit;
-  }
-  
-  html {
+    box-sizing: border-box;
+}
+
+li, a {
+    list-style: none;
+    text-decoration: none;
+    color: var(--white);
+}
+
+body {
     font-size: var(--font-size-text);
-  }
-  
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
     font-family: var(--font-family);
-
     width: 100%;
-    height: 10000000000em;
+    min-height: 100vh;
+}
 
-  }
+.margin-section {
+    height: 100%;
+    margin: 0px 12%;
+    border-inline: 1px solid #807a7a15;
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    font-size: var(--font-size-title);
-  }
-  
+.size-container {
+    width: 100%;
+    height: 100vh;
+}
