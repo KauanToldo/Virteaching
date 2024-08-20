@@ -19,7 +19,8 @@
     --light-blue: #635BFF;
     --font-family: "Inter", sans-serif;
     --font-size-text: 18px;
-    --font-size-title: 50px;
+    --font-size-title: 40px;
+    --font-size-subtitle: 25px
 }
 
 html {
@@ -54,4 +55,19 @@ body {
 .size-container {
     width: 100%;
     height: 100vh;
+}
+
+.subtitle-section {
+    color: var(--light-blue);
+    padding-top: 120px;
+    padding-bottom: 50px;
+    padding-left: 40px;
+    font-size: var(--font-size-subtitle);
+}
+
+.title-section {
+    color: var(--black);
+    padding-bottom: 30px;
+    padding-left: 40px;
+    font-size: var(--font-size-title);
 }
