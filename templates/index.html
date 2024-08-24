@@ -8,6 +8,7 @@
     <title>Virteaching</title>
 </head>
 <body>
+    {% block conteudo %}
     <header>
         <div id="logo-name">
             <img src="../static/assets/logo-white.png" alt="Logo">
@@ -25,7 +26,7 @@
         <section id="banner-section">
             <div>
                 <h1>REALIDADE VIRTUAL:<br><span>UM NOVO MÉTODO DE ENSINO</span></h1>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos, reiciendis aut perspiciatis minima optio dolore quia quaerat officiis unde illo, aspernatur esse ex vitae architecto! Corrupti error sequi laudantium architecto.</p>
+                <p>Transformando Saberes: Da Sala de Aula Tradicional à Imersão na Realidade Virtual Profissional, Reimaginando a Educação e Ampliando Horizontes de Aprendizagem.</p>
             </div>
             <img src="../static/assets/banner-img.png" alt="">
         </section>
@@ -37,27 +38,26 @@
 
                 <h3 class="subtitle-section">Utilitários</h3>
                 <h1 class="title-section">Equipamentos Virtuais</h1>
-                <p class="text-padding"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                <p class="text-padding"> Na Realidade Virtual, a interação entre o usuário e o sistema é facilitada por uma ampla variedade de dispositivos de entrada e saída. Esses dispositivos permitem que o usuário se comunique com o ambiente virtual de maneira intuitiva e envolvente. Entre os dispositivos mais comuns estão:  </p>
             
                 <div id="container-equips">
 
-                    <div class="cards">
-                        <img src="../static/assets/oculos.png" alt="">
-                        <h4>Mouse 3D</h4>
-                        <p class="text-equips">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indu.</p>
-                    </div>
+                    <span class="material-symbols-outlined">arrow_back_ios</span>
 
-                    <div class="cards">
-                        <img src="../static/assets/luvas.png" alt="">
-                        <h4>Mouse 3D</h4>
-                        <p class="text-equips">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indu.</p>
-                    </div>
 
-                    <div class="cards">
-                        <img src="../static/assets/mouse.png" alt="">
-                        <h4>Mouse 3D</h4>
-                        <p class="text-equips">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indu.</p>
-                    </div>
+                    {% for equips_title, equips_info in equips_dict.items() %}
+
+                        <div class="cards {{equips_info.estado}}">
+                            <img src="{{equips_info.image}}" alt="">
+                            <h4>{{equips_title}}</h4>
+                            <p class="text-equips">{{equips_info.conteudo}}</p>
+
+                        </div>
+                        
+                    {% endfor %}
+
+
+                    <span class="material-symbols-outlined">arrow_forward_ios</span>
 
                 </div>
             
@@ -76,9 +76,7 @@
                 <p class="text-padding"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
             
                 <div id="areas">
-                    {% block conteudo %}
                     {% for area_title, area_info in areas_dict.items() %}
-
                         <div class="area" id="{{area}}">
                             <div class="header-area">
                                 <h2>{{area_title}}</h2>
@@ -95,7 +93,7 @@
                             </div>
                         </div>
                     {% endfor %}
-                    {% endblock %}
+
                 </div>
             </section>
         </div>
@@ -165,5 +163,6 @@
             <span>@2024 IFC Campus Concórdia</span>
         </div>
     </footer>
+    {% endblock %}
 </body>
 </html>
