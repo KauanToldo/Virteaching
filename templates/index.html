@@ -91,7 +91,29 @@
             <section class="margin-section" id="espaco-layout"></section>
         </div>
         <div class="size-container" id="treinamento-container">
-            <section class="margin-section" id="treinamento-layout"></section>
+            <section class="margin-section" id="treinamento-layout">
+                <h3 class="subtitle-section">Educação</h3>
+                <h1 class="title-section">Casos de Treinamento</h1>
+                <p class="text-padding"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+            
+                <div id="areas">
+                    {% block conteudo %}
+                    {% for area_title, area_info in areas_dict.items() %}
+
+                        <div class="area" id="{{area}}">
+                            <div class="header-area">
+                                <h2>{{area_title}}</h2>
+                                <span class="material-symbols-outlined">keyboard_arrow_down</span>
+                            </div>
+                            <div class="body-area">
+                                <p>{{area_info.image}}</p>
+                                <p>{{area_info.conteudo}}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    {% endblock %}
+                </div>
+            </section>
         </div>
         <div class="size-container" id="vd-container">
             <section class="margin-section" id="vd-layout"></section>
