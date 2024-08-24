@@ -45,7 +45,7 @@
     border-color: #4FC931;
     width: 0px;
     height: 48px;
-    margin-left: 12.5%;
+    margin-left: 10%;
 }
 
 .vd-line-dis{
@@ -55,7 +55,7 @@
     border-color: #F51010;
     width: 0px;
     height: 48px;
-    margin-left: 87.5%;
+    margin-left: 90%;
 }
 
 .vd-curve-adv{
@@ -66,7 +66,7 @@
     border-color: #4FC931;
     width: 48px;
     height: 48px;
-    margin-left: 12.5%; 
+    margin-left: 10%; 
     border-bottom-left-radius: 50%;
 }
 
@@ -78,7 +78,7 @@
     border-color: #F51010;
     width: 48px;
     height: 48px;
-    margin-left: 83.5%;
+    margin-left: 86%;
     border-top-left-radius: 50%;
     transform: scaleX(-1);
 }
@@ -88,9 +88,9 @@
     border-top: var(--border-width) ;
     border-style: solid;
     border-image: linear-gradient(to left, #F51010, #FFAB08, #4FC931) 1;
-    width: 790px;
+    width: 844px;
     height: 0px;
-    margin-left: 16%;
+    margin-left: 13%;
     margin-top: -1.5px;
     margin-bottom: -1.5px;
 }
