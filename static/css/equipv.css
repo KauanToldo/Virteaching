@@ -34,3 +34,15 @@ h4, .text-equips {
     padding-top: 8%;
     line-height: 1.6em;
 }
+
+#container-equips span {
+    font-size: 50px;
+}
+
+.active {
+    display: block;
+}
+
+.none {
+    display: none;
+}
