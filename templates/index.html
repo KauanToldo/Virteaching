@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100" rel="stylesheet" />
+    <script type="module" src="../static/js/script.js" defer></script>
     <title>Virteaching</title>
 </head>
 <body>
@@ -42,7 +43,7 @@
             
                 <div id="container-equips">
 
-                    <span class="material-symbols-outlined">arrow_back_ios</span>
+                    <span class="material-symbols-outlined" id="left-chevron">arrow_back_ios</span>
 
 
                     {% for equips_title, equips_info in equips_dict.items() %}
@@ -51,13 +52,12 @@
                             <img src="{{equips_info.image}}" alt="">
                             <h4>{{equips_title}}</h4>
                             <p class="text-equips">{{equips_info.conteudo}}</p>
-
                         </div>
                         
                     {% endfor %}
 
 
-                    <span class="material-symbols-outlined">arrow_forward_ios</span>
+                    <span class="material-symbols-outlined" id="right-chevron">arrow_forward_ios</span>
 
                 </div>
             
@@ -165,4 +165,5 @@
     </footer>
     {% endblock %}
 </body>
+
 </html>
