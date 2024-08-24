@@ -24,7 +24,7 @@
     height: 100px;
     width: 100px;
     border-radius: 20%;
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.250);
+    box-shadow: 5px 5px 5px rgba(139, 139, 139, 0.25);
     border: var(--border-width);
 }
 .advantage{
