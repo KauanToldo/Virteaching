@@ -1,0 +1,79 @@
+#areas {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 0px 15px;
+}
+
+.area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 15px;
+    cursor: pointer;
+}
+
+.header-area:hover {
+    background-color: rgb(247, 247, 247);
+}
+
+.header-area {
+    transition: .2s ease-in-out;
+    border: 1px solid var(--black);
+    padding: 15px;
+    border-radius: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-area h2 {
+    font-size: var(--font-size-text);
+    font-weight: 500;
+}
+
+.header-area span {
+    color: var(--light-blue);
+    border-radius: 5px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.body-area {
+    display: none;
+    padding: 25px;
+    gap: 50px;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.body-area div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.body-area img {
+    padding: 30px 60px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.163);
+    border-radius: 15px;
+}
+
+.body-area div button {
+    background-color: var(--purple);
+    width: 250px;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: white;
+    font-size: var(--font-size-text);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.body-area div button:hover {
+    background-color: #544dd8;;
+}
