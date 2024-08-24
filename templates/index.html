@@ -48,7 +48,7 @@
 
                     {% for equips_title, equips_info in equips_dict.items() %}
 
-                        <div class="cards {{equips_info.estado}}">
+                        <div class="cards {{equips_info.estado}}" id="{{equips_info.controle}}">
                             <img src="{{equips_info.image}}" alt="">
                             <h4>{{equips_title}}</h4>
                             <p class="text-equips">{{equips_info.conteudo}}</p>
