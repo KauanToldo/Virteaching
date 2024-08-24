@@ -1,3 +1,97 @@
 #vd-container {
         background-color: var(--light-background-color);
     }
+
+:root {
+    --border-width: 1.6px;
+}
+
+
+.vd-text-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vd-text-box-dis{
+    flex-direction: row-reverse;
+}
+.vd-text{
+    margin-left: 5%;
+    width: 70%;
+}
+
+.vd-box{
+    height: 100px;
+    width: 100px;
+    border-radius: 20%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.250);
+    border: var(--border-width);
+}
+.advantage{
+    border-style: solid;
+    border-color: #4FC931;
+}
+
+.disadvantage{
+    border-style: solid;
+    border-color: #F51010;
+}
+
+.vd-line-adv{
+    border: 0px;
+    border-left: var(--border-width);
+    border-style: solid;
+    border-color: #4FC931;
+    width: 0px;
+    height: 48px;
+    margin-left: 12.5%;
+}
+
+.vd-line-dis{
+    border: 0px;
+    border-left: var(--border-width);
+    border-style: solid;
+    border-color: #F51010;
+    width: 0px;
+    height: 48px;
+    margin-left: 87.5%;
+}
+
+.vd-curve-adv{
+    border: 0px;
+    border-left: var(--border-width);
+    border-bottom: var(--border-width) ;
+    border-style: solid;
+    border-color: #4FC931;
+    width: 48px;
+    height: 48px;
+    margin-left: 12.5%; 
+    border-bottom-left-radius: 50%;
+}
+
+.vd-curve-dis{
+    border: 0px;
+    border-left: var(--border-width);
+    border-top: var(--border-width) ;
+    border-style: solid;
+    border-color: #F51010;
+    width: 48px;
+    height: 48px;
+    margin-left: 83.5%;
+    border-top-left-radius: 50%;
+    transform: scaleX(-1);
+}
+
+.vd-hline{
+    border: 0px;
+    border-top: var(--border-width) ;
+    border-style: solid;
+    border-image: linear-gradient(to left, #F51010, #FFAB08, #4FC931) 1;
+    width: 790px;
+    height: 0px;
+    margin-left: 16%;
+    margin-top: -1.5px;
+    margin-bottom: -1.5px;
+}
+
+  
