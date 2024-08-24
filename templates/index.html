@@ -8,6 +8,7 @@
     <title>Virteaching</title>
 </head>
 <body>
+    {% block conteudo %}
     <header>
         <div id="logo-name">
             <img src="../static/assets/logo-white.png" alt="Logo">
@@ -43,7 +44,20 @@
 
                     <span class="material-symbols-outlined">arrow_back_ios</span>
 
-                    <div class="cards  active">
+
+                    {% for equips_title, equips_info in equips_dict.items() %}
+
+                        <div class="cards {{equips_info.estado}}">
+                            <img src="{{equips_info.image}}" alt="">
+                            <h4>{{equips_title}}</h4>
+                            <p class="text-equips">{{equips_info.conteudo}}</p>
+
+                        </div>
+                        
+                    {% endfor %}
+
+
+                    <!-- <div class="cards  active">
                         <img src="../static/assets/oculos.png" alt="">
                         <h4>Mouse 3D</h4>
                         <p class="text-equips">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indu.</p>
@@ -76,7 +90,7 @@
                         <img src="../static/assets/mouse.png" alt="">
                         <h4>Mouse 3D</h4>
                         <p class="text-equips">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the indu.</p>
-                    </div>
+                    </div> -->
 
                     <span class="material-symbols-outlined">arrow_forward_ios</span>
 
@@ -97,7 +111,6 @@
                 <p class="text-padding"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
             
                 <div id="areas">
-                    {% block conteudo %}
                     {% for area_title, area_info in areas_dict.items() %}
                         <div class="area" id="{{area}}">
                             <div class="header-area">
@@ -110,7 +123,7 @@
                             </div>
                         </div>
                     {% endfor %}
-                    {% endblock %}
+
                 </div>
             </section>
         </div>
@@ -180,5 +193,6 @@
             <span>@2024 IFC Campus Concórdia</span>
         </div>
     </footer>
+    {% endblock %}
 </body>
 </html>

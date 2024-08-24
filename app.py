@@ -27,9 +27,44 @@ areas_dict = {
 }
 
 
+equips_dict = {
+    "Óculos VR": {
+        "image": "../static/assets/oculos.png",
+        "conteudo": "Lorem Ipsum is simply dummy text of the printing and typesetting indu",
+        "estado": "active"
+    },
+    "Mouse 3D": {
+        "image": "../static/assets/mouse.png",
+        "conteudo": "Lorem Ipsum is simply dummy text of the printing and typesetting indu",
+        "estado": "active"
+    },
+    "Luvas": {
+        "image": "../static/assets/luvas.png",
+        "conteudo": "Lorem Ipsum is simply dummy text of the printing and typesetting indu",
+        "estado": "active"
+    },
+    "Teclados": {
+        "image": "../static/assets/oculos.png",
+        "conteudo": "Lorem Ipsum is simply dummy text of the printing and typesetting indu",
+        "estado": "none"
+    },
+    "Rastreadores": {
+        "image": "../static/assets/mouse.png",
+        "conteudo": "Lorem Ipsum is simply dummy text of the printing and typesetting indu",
+        "estado": "none"
+    },
+    "Reconhecedores de Voz": {
+        "image": "../static/assets/luvas.png",
+        "conteudo": "Lorem Ipsum is simply dummy text of the printing and typesetting indu",
+        "estado": "none"
+    }
+}
+
+
+
 @app.route("/")
 def index():
-    return render_template("index.html", areas_dict=areas_dict)
+    return render_template("index.html", areas_dict=areas_dict, equips_dict = equips_dict)
 
 if __name__ == '__main__':
     app.run(debug=True)
