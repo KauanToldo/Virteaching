@@ -80,3 +80,55 @@ body {
     padding-right: 30%;
     font-size: var(--font-size-text);
 }
+
+/* Large Size */
+@media screen and  (max-width: 992px) {
+    .margin-section {
+        margin: 0px 10%; 
+    }
+}
+
+/* Medium Size */
+@media screen and  (max-width: 768px) {
+    .margin-section {
+       margin: 0px 8%; 
+    }
+
+    .subtitle-section {
+        font-size: 18px;
+    }
+
+    .title-section {
+        font-size: 30px;
+    }
+
+    .text-padding {
+        font-size: 15px;
+        padding-right: 5%;
+    }
+
+    .subtitle-section,  .title-section, .text-padding {
+        padding-left: 20px;
+        padding-bottom: 25px;
+    }
+
+}
+
+/* Small Size */
+@media screen and  (max-width: 576px) {
+    .margin-section {
+        margin: 0px 5%; 
+    }
+
+    .subtitle-section {
+        font-size: 15px;
+    }
+
+    .title-section {
+        font-size: 25px;
+    }
+
+    .text-padding {
+        font-size: 13px;
+    }
+}

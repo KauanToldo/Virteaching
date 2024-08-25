@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const spanEl = header.querySelector('.arrow-treinamento');
             // Alterna a classe do icone da flecha para abrir e fechar
             spanEl.classList.toggle('aberto');
+            
             // Alterna o display entre 'none' e 'flex' do corpo da área
             if (bodyArea.style.display === 'flex') {
                 bodyArea.style.display = 'none';

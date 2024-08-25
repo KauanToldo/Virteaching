@@ -36,47 +36,56 @@ equips_dict = {
     "Óculos VR": {
         "image": "../static/assets/oculos.png",
         "conteudo": "Os óculos 3D criam profundidade ao projetar imagens diferentes para cada olho, aprimorando a imersão visual.",
-        "estado": "active"
+        "estado": "active",
+        "controle": 1,
     },
     "Mouse 3D": {
         "image": "../static/assets/mouse.png",
         "conteudo": "Os mouses 3D oferecem controle preciso em ambientes virtuais, permitindo movimentos em todas as direções.",
-        "estado": "active"
+        "estado": "active",
+        "controle": 2,
     },
     "Luvas": {
         "image": "../static/assets/luvas.png",
         "conteudo": "As luvas 3D capturam movimentos manuais, permitindo interação natural e precisa com ambientes virtuais.",
-        "estado": "active"
+        "estado": "active",
+        "controle": 3,
     },
     "Teclados": {
         "image": "../static/assets/oculos.png",
         "conteudo": "Permitem entrada de comandos e dados para interação com sistemas virtuais, similar a um ambiente tradicional.",
-        "estado": "none"
+        "estado": "none",
+        "controle": 4,
     },
     "Rastreadores": {
         "image": "../static/assets/mouse.png",
         "conteudo": "Monitoram e registram o movimento do usuário, integrando-o com o ambiente virtual para uma experiência mais dinâmica.",
-        "estado": "none"
+        "estado": "none",
+        "controle": 5,
     },
     "Reconhecedores de Voz": {
         "image": "../static/assets/luvas.png",
         "conteudo": "Capturam comandos de voz, possibilitando controle por meio de comandos falados.",
-        "estado": "none"
+        "estado": "none",
+        "controle": 6,
     },
     "Displays visuais": {
         "image": "../static/assets/luvas.png",
         "conteudo": "Oferecem uma experiência visual imersiva.",
-        "estado": "none"
+        "estado": "none",
+        "controle": 7,
     },
     "Displays de áudio": {
         "image": "../static/assets/luvas.png",
         "conteudo": "Proporcionam um som espacial envolvente.",
-        "estado": "none"
+        "estado": "none",
+        "controle": 8,
     },
     "Displays hápticos": {
         "image": "../static/assets/luvas.png",
         "conteudo": "Simulam sensações táteis, adicionando uma dimensão extra à interação.",
-        "estado": "none"
+        "estado": "none",
+        "controle": 9,
     }
 }
 
