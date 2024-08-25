@@ -80,16 +80,15 @@
                         <div class="area" id="{{area}}">
                             <div class="header-area">
                                 <h2>{{area_title}}</h2>
-                                <span class="material-symbols-outlined">chevron_right</span>
+                                <span class="material-symbols-outlined arrow-treinamento">chevron_right</span>
                             </div>
                             <div class="body-area" id="{{area_info.id}}">
                                 <img src="{{ area_info.image }}" alt="">
-                                <div>
+                                <div class="text-body-area">
                                     <h1>{{area_title}}</h1>
                                     <p>{{area_info.conteudo}}</p>
                                     <button>Mais sobre o curso</button>
                                 </div>
-                                
                             </div>
                         </div>
                     {% endfor %}

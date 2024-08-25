@@ -41,6 +41,10 @@
     font-weight: bold;
 }
 
+.aberto {
+    transform: rotate(90deg);
+}
+
 .body-area {
     display: none;
     padding: 25px;
@@ -59,6 +63,7 @@
     padding: 30px 60px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.163);
     border-radius: 15px;
+    width: 300px;
 }
 
 .body-area div button {
