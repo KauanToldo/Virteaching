@@ -4,8 +4,8 @@
 
 #container-equips {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 22em;
     padding-left: 40px;
@@ -21,18 +21,21 @@
 }
 
 .cards img {
+    height: 50%;
     width: 100%;
 }
 
 .text-equips {
     font-size: 14px;
     text-align: left;
+    padding-inline: 6%;
+    padding-bottom: 14%;
+    line-height: 1.6em;
 }
 
-h4, .text-equips {
+h4 {
     padding-inline: 6%;
-    padding-top: 8%;
-    line-height: 1.6em;
+    padding-block: 7%;
 }
 
 #container-equips span {
@@ -46,3 +49,4 @@ h4, .text-equips {
 .none {
     display: none;
 }
+
