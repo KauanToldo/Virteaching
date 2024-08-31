@@ -73,6 +73,11 @@ body {
     font-size: var(--font-size-title);
 }
 
+.title-section-blue {
+    color: #00D4FF;
+    font-size: var(--font-size-title);
+}
+
 .text-padding {
     color: var(--black);
     padding-bottom: 50px;

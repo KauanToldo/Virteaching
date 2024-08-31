@@ -1,3 +1,117 @@
 #chatvr-container {
     background-color: var(--blue-background-color);
+    padding: 100px 0px;
+}
+
+#chat-container {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 20px;
+    height: 90vh;
+}
+
+#msg-container {
+    padding: 0px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 5px 0px 50px 0px;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.right {
+    align-items: end;
+    flex-direction: row-reverse;
+}
+
+.left {
+    align-items: start;
+}
+
+
+.msg {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-field {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-field .user-image {
+    background-color: rgb(190, 190, 190);
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 25px;
+    fill: var(--black);
+}
+
+.user-field .name {
+    font-weight: 500;
+}
+
+.body-msg {
+    position: relative;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--blue-background-color);
+    color: var(--white);
+    max-width: 45%;
+    text-align: justify;
+    line-height: 22px;
+}
+
+#fields {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#msg-field {
+    width: 86%;
+    padding: 0px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: var(--blue-background-color);
+    color: white;
+}
+
+#msg-field::placeholder {
+    color: var(--white);
+    opacity: 0.6; 
+  }
+
+#submit-msg {
+    width: 12%;
+    border-radius: 50px;
+    padding: 10px 10px;
+    border: 1px solid transparent;
+    background-image: linear-gradient(white, white), linear-gradient(to bottom right, #00D4FF, #000000);
+    background-origin: border-box;
+    background-clip: padding-box, border-box; /* Aplica o gradiente à borda */
+    background-color: var(--white);
+    font-weight: medium;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+#submit-msg:hover {
+    box-shadow: 0px 0px 10px #0000004e;
+    scale: 0.95;
+}
+
+.title-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.chat-icon {
+    color: #00D4FF;
+    font-size: 30px !important;
 }
