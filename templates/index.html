@@ -43,17 +43,27 @@
                 <p class="text-padding"> Na Realidade Virtual, a interação entre o usuário e o sistema é facilitada por uma ampla variedade de dispositivos de entrada e saída. Esses dispositivos permitem que o usuário se comunique com o ambiente virtual de maneira intuitiva e envolvente. Entre os dispositivos mais comuns estão:  </p>
             
                 <div id="container-equips">
-                    <span class="material-symbols-outlined" id="left-chevron">arrow_back_ios</span>
-                
-                        {% for equips_title, equips_info in equips_dict.items() %}
-                            <div class="cards {{equips_info.estado}}">
-                                <img src="{{equips_info.image}}" alt="">
-                                <h4>{{equips_title}}</h4>
-                                <p class="text-equips">{{equips_info.conteudo}}</p>
+                    <span class="material-symbols-outlined" id="left-chevron" onclick="moveCarousel(-1)">arrow_back_ios</span>
+
+                    <div class="container-track">
+
+                        <div class="container-cards">
+                    
+
+
+                                {% for equips_title, equips_info in equips_dict.items() %}
+                                    <div class="cards {{equips_info.estado}}">
+                                        <img src="{{equips_info.image}}" alt="">
+                                        <h4>{{equips_title}}</h4>
+                                        <p class="text-equips">{{equips_info.conteudo}}</p>
+                                    </div>
+                                {% endfor %}
+
                             </div>
-                        {% endfor %}
+
+                    </div>
                 
-                    <span class="material-symbols-outlined" id="right-chevron">arrow_forward_ios</span>
+                    <span class="material-symbols-outlined" id="left-chevron" onclick="moveCarousel(-1)">arrow_forward_ios</span>
                 </div>
             
             </section>
