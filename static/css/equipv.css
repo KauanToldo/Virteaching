@@ -8,6 +8,7 @@
     justify-content: space-between;
     align-items: center;
     height: 22em;
+    margin-bottom: 5em;
 
 }
 
@@ -22,8 +23,6 @@
     height: 100%;
     gap: 20px;
     transition: transform 0.4s ease-in-out;
-    /* Certifique-se que o conteúdo do carrossel não transborde fora do contêiner */
-    overflow: hidden;
     width: 100%;
 }
 
@@ -32,7 +31,7 @@
     height: 100%; 
     width: 300px;
     background-color: var(--white);
-    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.163);
+    border: 1px solid rgba(0, 0, 0, 0.184);
     border-radius: 10px;
 }
 
@@ -57,6 +56,7 @@ h4 {
     font-size: 50px;
     padding-left: 10px;
     padding-inline: 32px;
+    cursor: pointer;
 
 }
 
