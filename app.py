@@ -51,33 +51,33 @@ equips_dict = {
     "Teclados": {
         "image": "../static/assets/oculos.png",
         "conteudo": "Permitem entrada de comandos e dados para interação com sistemas virtuais, similar a um ambiente tradicional.",
-        "estado": "none",
+        "estado": "active",
     },
     "Rastreadores": {
         "image": "../static/assets/mouse.png",
         "conteudo": "Monitoram e registram o movimento do usuário, integrando-o com o ambiente virtual para uma experiência mais dinâmica.",
-        "estado": "none",
+        "estado": "active",
 
     },
     "Reconhecedores de Voz": {
         "image": "../static/assets/luvas.png",
         "conteudo": "Capturam comandos de voz, possibilitando controle por meio de comandos falados.",
-        "estado": "none",
+        "estado": "active",
     },
     "Displays visuais": {
         "image": "../static/assets/luvas.png",
         "conteudo": "Oferecem uma experiência visual imersiva.",
-        "estado": "none",
+        "estado": "active",
     },
     "Displays de áudio": {
         "image": "../static/assets/luvas.png",
         "conteudo": "Proporcionam um som espacial envolvente.",
-        "estado": "none",
+        "estado": "active",
     },
     "Displays hápticos": {
         "image": "../static/assets/luvas.png",
         "conteudo": "Simulam sensações táteis, adicionando uma dimensão extra à interação.",
-        "estado": "none",
+        "estado": "active",
     }
 }
 
