@@ -1,3 +1,18 @@
 #what-rv-container {
     background-color: var(--light-background-color);
 }
+
+#what-rv p {
+    padding-left: 40px;
+    max-width: 80%;
+}
+
+#what-rv img {
+    width: 300px;
+}
+
+#what-rv {
+    display: flex;
+    align-items: center;
+    padding-right: 40px;
+}
