@@ -16,13 +16,27 @@
 }
 
 .card-ensino {
-    border: 1px solid rgba(0, 0, 0, 0.145);
     border-radius: 20px;
     padding: 40px 20px;
     width: 50%;
+    transition: transform 0.3s ease-in-out,
+    z-index 0.3s ease-in-out; 
 }
 
 .title-ensino {
     font-size: var(--font-size-title);
     padding-block: 10px 30px;
+}
+
+.text-ensino {
+    font-size: 17px;
+    text-align: start;
+    line-height: 1.3em;
+}
+
+.card-ensino:hover {
+    border: 1px solid rgba(0, 0, 0, 0.145);
+    transform: scale(1.05);
+    z-index: 10; 
+    cursor: pointer;
 }
