@@ -2,3 +2,27 @@
     background-color: var(--light-background-color);
 }
 
+
+#container-ensino {
+    width: 100%;
+    height: 35em;
+}
+
+
+#tradicional {
+    width: 100%;
+    height: 45%;
+    margin-left: 40px;
+}
+
+.card-ensino {
+    border: 1px solid rgba(0, 0, 0, 0.145);
+    border-radius: 20px;
+    padding: 40px 20px;
+    width: 50%;
+}
+
+.title-ensino {
+    font-size: var(--font-size-title);
+    padding-block: 10px 30px;
+}
