@@ -26,7 +26,6 @@
     width: 100%;
 }
 
-
 .cards {
     height: 100%; 
     width: 300px;
@@ -57,15 +56,17 @@ h4 {
     padding-left: 10px;
     padding-inline: 32px;
     cursor: pointer;
+}
+
+
+@media (max-width: 1500px) {
+
+    
 
 }
 
-.active {
-    display: block;
-}
 
-.none {
-    display: none;
+@media (max-width: 1100px) {
+    
 }
-
 

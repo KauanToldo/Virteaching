@@ -44,19 +44,17 @@
     gap: 30px;
 }
 
-#arrow-quadrado #arrow {
-    color: var(--light-blue);
-}
-
 .blue-board {
     border-color: aqua;
 }
 
-@media screen and  (max-width: 1250px) {
-    
-    
+#arrow {
+    color: var(--light-blue);
+}
 
-
+#arrow-secret  {
+    color: var(--light-blue);
+    display: none;
 }
 
 /* Medium Size */
@@ -77,8 +75,14 @@
         gap: 20px;
     }
 
+
     #arrow {
         display: none;
+    }
+
+    #arrow-secret {
+        display: block;
+        margin-block: -30px;
     }
 
     #arrow-quadrado {
@@ -105,6 +109,10 @@
 
     .quadrado {
         gap: 20px;
+    }
+
+    #arrow-secret {
+        font-size: 30px;
     }
 }
 
