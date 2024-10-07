@@ -1,0 +1,53 @@
+#menu-lateral {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    padding: 60px 25px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#open-menu {
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+#menu-lateral img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 50px;
+    align-self: center;
+}
+
+#menu-lateral ul a li {
+    color: black;
+    font-size: var(--font-size-text);
+    margin-bottom: 10px;
+    transition: .3s ease-in-out;
+    text-align: center;
+}
+
+#menu-lateral ul a li:hover {
+    text-decoration: underline var(--light-blue);
+    font-size: 25px;
+}
+
+#close-menu {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 35px;
+    cursor: pointer;
+    transition: 1 ease-in-out;
+}
+
+#close-menu:hover {
+    color: red;
+}

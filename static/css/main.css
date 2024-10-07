@@ -10,13 +10,14 @@
 @import url('./chatvr.css');
 @import url('./footer.css');
 @import url('./equipv.css');
+@import url('./menu_lateral.css');
 
 :root {
     --blue-background-color: #0A2540;
     --light-background-color: #F6F9FC;
     --white: #FFFFFF;
     --black: #000000;
-    --light-blue: #635BFF;
+    --light-blue: #00D4FF;
     --purple: #635BFF;
     --font-family: "Inter", sans-serif;
     --font-size-text: 18px;
