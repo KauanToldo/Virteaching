@@ -1,83 +1,111 @@
-.quadrado{
-    border-width: 2px;
-    border-style: solid;
-    border-color: aqua;
-    border-radius: 20px;
+
+#container-quadrados {
+    height: 100%; width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.quadrado {
     width: 170px;
     height: 170px;
+    border: 2px solid black ;
+    border-radius: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     justify-content: center;
-
-
-}
-#container-quadrados{
-    width: 100%;
-    height: 30em;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-}
-
-.paragrafos{
-    font-size: 14px;
-
+    flex-direction: column;
+    text-align: center;
 }
 
 #container-quadrados span{
     font-size: 90px;
-    
 }
 
-#quadrados-baixo{
+.paragrafos{
+    font-size: 14px;
+}
+
+#quadrados-baixo {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
-    width: 70%;
-    margin-top: 30px;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-
-
-#container-baixo{
-    width: 170px;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    display: flex;
 }
 
-#container-baixo #esse{
+#arrow-quadrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#arrow-quadrado #arrow {
     color: var(--light-blue);
 }
 
-.cor-borda{
-    border: 2px solid black;
+.blue-board {
+    border-color: aqua;
 }
 
-#esse2 {
-    display: none;
-}
-
-/* Very Large Size */
-@media screen and  (min-width: 1250px) {
-    #quadradros-baixo {
-        width: 80% !important;
-    }
-}
-
-/* Large Size */
-@media screen and  (max-width: 992px) {
+@media screen and  (max-width: 1250px) {
     
+    
+
+
 }
 
 /* Medium Size */
-@media screen and  (max-width: 768px) {
-    
+@media screen and  (max-width: 860px) {
+
+    .quadrado {
+        width: 90%; height: 100%;
+        flex-direction: row;
+        justify-content: start;
+        gap: 60px;
+        padding-inline: 6%;
+        text-align: justify;
+        
+    }
+
+    #quadrados-baixo {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #arrow {
+        display: none;
+    }
+
+    #arrow-quadrado {
+        width: 100%;
+    }
+
+    .paragrafos br {
+        display: none;
+    }
+
+
+    #container-quadrados span {
+        padding-block: 3%;
+    }
+
 }
 
 /* Small Size */
 @media screen and  (max-width: 576px) {
-    
+
+    .paragrafos {
+        font-size: 13px;
+    }
+
+    .quadrado {
+        gap: 20px;
+    }
 }
+
+
