@@ -108,7 +108,7 @@ body {
         font-size: 18px;
     }
 
-    .title-section {
+    .title-section, .title-section-blue, .chat-icon {
         font-size: 30px;
     }
 
@@ -138,7 +138,7 @@ body {
         font-size: 15px;
     }
 
-    .title-section {
+    .title-section, .title-section-blue, .chat-icon {
         font-size: 25px;
     }
 

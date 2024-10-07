@@ -51,3 +51,35 @@ footer {
     color: #807a7a;
     font-size: 15px;
 }
+
+/* Large Size */
+@media screen and  (max-width: 992px) {
+    #footer-navbar {
+        gap: 50px;
+    }
+}
+
+/* Medium Size */
+@media screen and  (max-width: 768px) {
+    #footer-navbar {
+        display: none;
+    }
+
+    footer {
+        gap: 50px;
+        padding: 100px 0px 50px 0px;
+    }
+
+    #credits img {
+        width: 40px;
+    }
+
+    #credits span {
+        font-size: 10px;
+    }
+}
+
+/* Small Size */
+@media screen and  (max-width: 576px) {
+
+}
