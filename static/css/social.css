@@ -25,7 +25,7 @@
     font-size: 90px;
 }
 
-.paragrafos{
+.paragrafos-social{
     font-size: 14px;
 }
 
@@ -89,13 +89,18 @@
         width: 100%;
     }
 
-    .paragrafos br {
+    .paragrafos-social br {
         display: none;
+    }
+
+    .paragrafos-social {
+        text-align: left;
     }
 
 
     #container-quadrados span {
         padding-block: 3%;
+        font-size: 60px
     }
 
 }
@@ -103,7 +108,7 @@
 /* Small Size */
 @media screen and  (max-width: 576px) {
 
-    .paragrafos {
+    .paragrafos-social {
         font-size: 13px;
     }
 

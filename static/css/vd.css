@@ -193,6 +193,9 @@
     .vd-text-box{
         display: none;
     }
+    .vd-text {
+       font-size: 16px; 
+    }
 }
 
 
@@ -235,4 +238,8 @@
     .text-padding {
         font-size: 13px;
     }
+
+    .vd-text {
+        font-size: 13px; 
+     }
 }

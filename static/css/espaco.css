@@ -54,3 +54,23 @@
     gap: 20px;
 }
 
+/* Large Size */
+@media screen and  (max-width: 992px) {
+
+}
+
+/* Medium Size */
+@media screen and  (max-width: 768px) {
+    #margin {
+        padding-left: 20px;
+        margin-bottom: 20px !important;
+    }
+
+}
+
+/* Small Size */
+@media screen and  (max-width: 576px) {
+    .title-white-espaco {
+        display: none;
+    }
+}

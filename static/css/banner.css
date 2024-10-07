@@ -26,3 +26,68 @@
     margin-top: 3rem;
     width: 40em;
 }
+
+/* Extra large Size */
+@media screen and  (max-width: 1280px) {
+    #banner-section img {
+        width: 30em;
+    }
+}
+
+/* Large Size */
+@media screen and  (max-width: 992px) {
+    #banner-section div h1 {
+        font-size: 30px;
+    }
+
+    #banner-section div p {
+        display: none;
+    }
+
+    #banner-section img {
+        width: 25em;
+    }
+}
+
+/* Medium Size */
+@media screen and  (max-width: 768px) {
+    #banner-section {
+        flex-direction: column;
+        align-items: normal;
+        padding: 80px 0px 0px 0px;
+    }
+
+    #banner-section div {
+        align-self: flex-start;
+        margin-left: 8%;
+    }
+
+    #banner-section img {
+        align-self: flex-end;
+    }
+}
+
+/* Small Size */
+@media screen and  (max-width: 576px) {
+    #banner-section img {
+        width: 20em;
+    }
+
+    #banner-section div h1 {
+        font-size: 24px;
+    }
+}
+
+/* Very Small Size */
+@media screen and  (max-width: 420px) {
+    #banner-section img {
+        width: 18em;
+    }
+}
+
+/* Ultra Very Small Size */
+@media screen and  (max-width: 340px) {
+    #banner-section img {
+        width: 15em;
+    }
+}
