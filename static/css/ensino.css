@@ -5,24 +5,139 @@
 
 #container-ensino {
     width: 100%;
-    height: 35em;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50% 50%;
+    padding-inline: 40px;
 }
 
 
-#tradicional {
-    width: 100%;
-    height: 45%;
-    margin-left: 40px;
-}
-
-.card-ensino {
-    border: 1px solid rgba(0, 0, 0, 0.145);
+.grid-text {
     border-radius: 20px;
-    padding: 40px 20px;
-    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+    gap: 30px;
+    border: 2px solid transparent; 
+    transition: border-color 0.5s ease-in-out, border-width 0.5s ease-in-out;
+    text-align: justify;
+
 }
+
 
 .title-ensino {
     font-size: var(--font-size-title);
-    padding-block: 10px 30px;
+    align-self: flex-start;
 }
+
+.reverse {
+    align-self: flex-end;
+}
+
+.grid-text:hover {
+    border: 2px solid #807a7a84;
+    cursor: pointer;
+}
+
+.line {
+    width: 60%; height: 50%;
+    border-radius: 100px;
+    animation: bordaAnimacao 10s infinite;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+.grid-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 40px;
+}
+
+#line-left {
+    border-left: 2px solid #807a7a84; 
+    border-bottom: 2px solid #807a7a84; 
+    border-top: 0 solid transparent; 
+    border-right: 0 solid transparent; 
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    align-self: flex-end;
+}
+
+#line-right {
+    border-left: 0 solid transparent;
+    border-bottom: 0 solid transparent; 
+    border-top: 2px solid #807a7a84; 
+    border-right: 2px solid #807a7a84; 
+    border-top-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+
+@keyframes bordaAnimacao {
+    0% {
+      border-color: rgb(228, 20, 228); 
+    }
+    50% {
+      border-color: rgb(0, 255, 255);
+    }
+    100% {
+      border-color: rgb(92, 127, 232); 
+    }
+  }
+
+
+/* Large Size */
+@media screen and  (max-width: 1250px) {
+    
+    #container-ensino {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        gap: 40px;
+    }
+    .grid-2 , .grid {
+        display: none;
+    }
+    .reverse {
+        align-self: flex-start;
+    }
+
+
+}
+
+/* Medium Size */
+@media screen and  (max-width: 768px) {
+
+    .title-ensino {
+        font-size: 30px;
+    }
+
+    .grid-text  p {
+        font-size: 15px;
+    }
+
+}
+
+/* Small Size */
+@media screen and  (max-width: 576px) {
+
+    #container-ensino {
+        padding-inline: 15px;
+    }
+
+    .grid-text p {
+        font-size: 13px;
+    }
+
+
+}
+

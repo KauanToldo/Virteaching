@@ -38,7 +38,7 @@
                 <div id="what-rv">
                     <div>
                         <h1 class="title-section">O que é<br> Realidade Virtual?</h1>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+                        <p> A realidade virtual é uma tecnologia inovadora que cria ambientes imersivos e interativos, permitindo que os usuários experimentem simulações tridimensionais de maneira envolvente. Utilizando dispositivos como óculos VR e controladores de movimento, a RV transporta os usuários para mundos digitais, onde podem explorar, aprender e interagir de forma única. Desde sua origem em simuladores de voo até sua aplicação em áreas como educação, medicina e entretenimento, a realidade virtual tem revolucionado a forma como vivenciamos o aprendizado e a interação social. </p>
                     </div>
                     <img src="../static/assets/whatrv.png" alt="O que é realidade virtual">
                 </div>
@@ -58,7 +58,6 @@
 
                         <div class="container-cards">
                     
-
                                 {% for equips_title, equips_info in equips_dict.items() %}
                                     <div class="cards {{equips_info.estado}}">
                                         <img src="{{equips_info.image}}" alt="">
@@ -84,13 +83,17 @@
                 <p class="text-padding">A crescente necessidade de engajamento na formação do conhecimento humano, por meio da resolução de problemas, reflete uma exigência do mercado de trabalho. A eficácia do aprendizado de um profissional está ligada às metodologias utilizadas em sua formação. Diversas estratégias de ensino podem enriquecer o processo de aprendizagem, permitindo que os alunos construam seu conhecimento de maneira mais eficaz. Este artigo abordará tanto o Método Tradicional quanto o Método que utiliza realidade virtual (RV).</p>
 
                 <div id="container-ensino">
-                    <div id="tradicional">
-                        <div class="card-ensino">
-                            <h3 class="title-ensino">Tradicional</h3>
-                            <p class="text-ensino">No método tradicional de ensino, há uma clara distinção entre os papéis do professor e do aluno, com o professor como figura central e detentor do conhecimento. Este modelo se baseia em aulas expositivas, onde os alunos são passivos, absorvendo informações sem questionar sua origem ou significado. Essa abordagem, descrita como "educação bancária" por Paulo Freire (1987), limita o desenvolvimento do pensamento crítico e da criatividade, restringindo os alunos a memorizar e repetir conteúdos. Embora o professor tenha maior controle sobre a aula, esse método apresenta desvantagens, como a falta de estímulo à reflexão dos alunos e a dificuldade de avaliação do real nível de aprendizado por parte do educador (Krüger; Ensslin, 2013).</p>
-                           
-                        </div>
+                    <div  class="grid-text" id="tradicional">
+                        <h3 class="title-ensino">Tradicional</h3>
+                        <p class="text-ensino">No método tradicional de ensino, o professor é a figura central e os alunos têm um papel passivo, absorvendo informações sem questionar. Essa abordagem, chamada de "educação bancária" por Paulo Freire (1987), limita o pensamento crítico e a criatividade dos alunos, focando na memorização e repetição. Embora permita maior controle ao professor, apresenta desvantagens como falta de estímulo à reflexão e dificuldade em avaliar o real nível de aprendizado dos alunos (Krüger; Ensslin, 2013)</p>
                     </div>
+                    <div class="grid-2"> <div class="line" id="line-right"></div> </div>
+                    <div class="grid"> <div class="line" id="line-left"></div> </div>
+                    <div class="grid-text" id="virtual">
+                        <h3 class="title-ensino reverse" >Realidade Virtual</h3>
+                        <p class="text-ensino reverse">A realidade virtual (RV) na educação permite aprendizado por descoberta, exploração e observação, oferecendo experiências antes impossíveis. Com a manipulação de objetos virtuais, a RV adapta-se a diferentes estilos de aprendizagem, proporcionando experiências personalizadas. Os Sistemas de Realidade Virtual (SRVs) permitem que professores ofereçam aulas interativas, nas quais os alunos podem se mover, ouvir, observar e interagir com objetos, simulando um ambiente real.</p>
+                    </div>
+                    
                 </div>
 
             </section>
@@ -130,6 +133,11 @@
                 <h3 class="subtitle-section">Educação</h3>
                 <h1 class="title-section" style="padding-bottom: 0;">Vantagens e desafios</h1>
                 <h1 class="title-section">da Utilização da Realidade Virtual</h1>
+                <div class="vd-media-line adv-media-line">
+                    <p class="vd-text">Possibilidade de simular situações de risco sem expor os alunos a perigos reais, garantindo a segurança durante o treinamento. </p>
+                    <p class="vd-text">Possibilidade de aprendizado remoto, sem necessidade de presença física em uma sala de aula, ampliando o alcance da formação. </p>   
+                    <p class="vd-text">Fornece feedback detalhado e contínuo sobre o progresso dos alunos, promovendo um processo de aprendizado mais eficiente. </p>
+                </div>
                 <div class="vd-text-box"> 
                     <div class="vd-box advantage"></div>
                     <p class="vd-text">Possibilidade de simular situações de risco sem expor os alunos a perigos reais, garantindo a segurança durante o treinamento. </p>
@@ -144,9 +152,20 @@
                     <div class="vd-box advantage"></div>
                     <p class="vd-text">Fornece feedback detalhado e contínuo sobre o progresso dos alunos, promovendo um processo de aprendizado mais eficiente. </p>
                 </div>
-                <div class="vd-curve-adv"></div>
-                <div class="vd-hline"></div>
-                <div class="vd-curve-dis"></div>
+                <div class="vd-curves-hline">
+                    <div class="vd-ch-top">
+                        <div class="vd-curve-adv"></div>
+                    </div>
+                    <div class="vd-hline"></div>
+                    <div class="vd-ch-bottom">
+                        <div class="vd-curve-dis"></div>
+                    </div>
+                </div>
+                <div class="vd-media-line dis-media-line">
+                    <p class="vd-text">Há uma escassez de exemplos do uso da RV em áreas específicas, como a construção civil, onde a falta de materiais disponíveis e os testes limitados resultam em um conhecimento superficial sobre sua aplicação.</p>
+                    <p class="vd-text">As empresas podem enfrentar dificuldades com os custos e a infraestrutura necessária para implementar a RV, especialmente em setores que exigem tecnologia de ponta.</p>
+                    <p class="vd-text">Na indústria de mineração, as restrições estão relacionadas aos equipamentos e programas utilizados nos sistemas de RV, que podem não ser adequados para simulações mais avançadas.</p>
+                </div>
                 <div class="vd-text-box vd-text-box-dis"> 
                     <div class="vd-box disadvantage"></div>
                     <p class="vd-text">Há uma escassez de exemplos do uso da RV em áreas específicas, como a construção civil, onde a falta de materiais disponíveis e os testes limitados resultam em um conhecimento superficial sobre sua aplicação.</p>
@@ -170,35 +189,31 @@
                 <p class="text-padding"> Embora a realidade virtual ofereça muitos benefícios no treinamento profissional, seu uso extensivo pode ter consequências sociais importantes. A redução da interação humana durante o processo de ensino pode impactar negativamente o desenvolvimento de habilidades interpessoais e a capacidade de trabalhar em equipe, que são essenciais no ambiente profissional.</p>
                 
                 <div id='container-quadrados'>
-
-                <div class="quadrado">
-                    <span class="material-symbols-outlined">head_mounted_device</span>
-                    <p class="paragrafos">Utilização RV para formação profissional</p>
-                </div>
-
-                <div id="quadrados-baixo">
-                    <span class="material-symbols-outlined" id='esse2'>keyboard_double_arrow_down</span>
-                    <div class="quadrado cor-borda">
-                        <span class="material-symbols-outlined">groups_3</span>
-                        <p class="paragrafos">Menos relações <br> sociais em ambiente <br> profissional</p>
+                    <div class="quadrado blue-board">
+                        <span class="material-symbols-outlined">head_mounted_device</span>
+                        <p class="paragrafos">Utilização RV para formação profissional</p>
                     </div>
 
-                    <div id='container-baixo'>
-                        <span class="material-symbols-outlined" id='esse'>keyboard_double_arrow_down</span>
+                    <div id="quadrados-baixo">
 
-                        <div class="quadrado cor-borda">
-                            <span class="material-symbols-outlined">reduce_capacity</span>
-                            <p class="paragrafos">Menor interação <br> humana</p>
+                        <div class="quadrado">
+                            <span class="material-symbols-outlined">groups_3</span>
+                            <p class="paragrafos">Menos relações <br> sociais em ambiente <br> profissional</p>
+                        </div>
+                        <div id="arrow-quadrado">
+                            <span class="material-symbols-outlined" id='arrow'>keyboard_double_arrow_down</span>
+                            <div class="quadrado">
+                                <span class="material-symbols-outlined">reduce_capacity</span>
+                                <p class="paragrafos">Menor interação <br> humana</p>
+                            </div>
+                        </div>
+ 
+                        <div class="quadrado">
+                            <span class="material-symbols-outlined">cognition</span>
+                            <p class="paragrafos">Afeta habilidades interpessoais</p>
                         </div>
 
                     </div>
-
-                    <div class="quadrado cor-borda">
-                        <span class="material-symbols-outlined">cognition</span>
-                        <p class="paragrafos">Afeta habilidades interpessoais</p>
-                    </div>
-
-                </div>
 
             </div>
             </section>
