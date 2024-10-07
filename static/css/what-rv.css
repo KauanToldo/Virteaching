@@ -16,3 +16,37 @@
     align-items: center;
     padding-right: 40px;
 }
+
+/* Large Size */
+@media screen and  (max-width: 992px) {
+    #what-rv {
+        flex-direction: column;
+        padding-right: 5%;
+    }
+
+    #what-rv p {
+        max-width: 100%;
+        padding-left: 20px;
+        margin-bottom: 50px;
+        font-size: 16px;
+    }
+
+}
+
+/* Medium Size */
+@media screen and  (max-width: 768px) {
+    #what-rv p {
+        font-size: 14.5px;
+    }
+}
+
+/* Small Size */
+@media screen and  (max-width: 576px) {
+    #what-rv p {
+        font-size: 13px;
+    }
+
+    #what-rv img {
+        width: 200px;
+    }
+}

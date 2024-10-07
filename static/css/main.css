@@ -92,6 +92,10 @@ body {
     .margin-section {
         margin: 0px 10%; 
     }
+
+    .text-padding {
+        font-size: 16px;
+    }
 }
 
 /* Medium Size */
@@ -116,6 +120,10 @@ body {
     .subtitle-section,  .title-section, .text-padding {
         padding-left: 20px;
         padding-bottom: 25px;
+    }
+
+    .text-padding {
+        font-size: 14.5px;
     }
 
 }
