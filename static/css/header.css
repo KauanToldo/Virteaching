@@ -23,6 +23,10 @@ header {
     gap: 20px;
 }
 
+#open-menu {
+    display: none;
+}
+
 /* Large Size */
 @media screen and  (max-width: 992px) {
     #banner-section div h1 {
@@ -42,6 +46,10 @@ header {
 @media screen and  (max-width: 768px) {
     nav {
         display: none !important;
+    }
+
+    #open-menu {
+        display: block;
     }
 
     #logo-name span {
