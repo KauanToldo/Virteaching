@@ -78,4 +78,4 @@ def index():
     return render_template("index.html", areas_dict=areas_dict, equips_dict = equips_dict)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)

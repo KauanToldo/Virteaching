@@ -8,6 +8,9 @@
     border-radius: 15px;
     padding: 20px;
     height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #msg-container {
@@ -16,7 +19,7 @@
     flex-direction: column;
     gap: 20px;
     margin: 5px 0px 50px 0px;
-    height: 80%;
+    height: 100%;
     overflow-y: auto;
 }
 
@@ -78,6 +81,7 @@
     border: none;
     background-color: var(--blue-background-color);
     color: white;
+    font-size: 16px;
 }
 
 #msg-field::placeholder {

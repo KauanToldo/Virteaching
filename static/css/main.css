@@ -154,7 +154,11 @@ body {
     position: fixed;
     right: 20px;
     bottom: 20px;
-    font-size: 60px;
+    font-size: 40px;
     cursor: pointer;
-    color: #00D4FF;
+    color: black;
+    background-color: #00D4FF;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 999;
 }
