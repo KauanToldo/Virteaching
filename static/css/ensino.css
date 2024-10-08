@@ -1,5 +1,6 @@
 #ensino-container {
     background-color: var(--light-background-color);
+
 }
 
 
@@ -95,6 +96,78 @@
   }
 
 
+#images-flutuantes {
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    display: none;
+    padding-block: 20px;
+}
+
+#images-flutuantes img {
+    width: 140px; height: 140px;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+
+.voar {
+    position: absolute;
+    width: 140px; height: 140px;
+}
+
+
+  #voar {
+    right: 23vw;
+    margin-top: 24em;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  #voar-2 {
+    right: 15vw;
+    margin-top: 34em;
+    animation: float2 3s ease-in-out infinite; 
+  }
+
+  #voar-3 {
+    left: 15vw;
+    margin-top: 50em;
+    animation: float2 3s ease-in-out infinite;
+  }
+
+  #voar-4 {
+    left: 25vw;
+    margin-top: 56em;
+    animation: float 3s ease-in-out infinite; 
+  }
+
+
+  @keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0); 
+    }
+}
+
+@keyframes float2 {
+    0% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(0); 
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+
+
 /* Large Size */
 @media screen and  (max-width: 1250px) {
     
@@ -111,6 +184,14 @@
         align-self: flex-start;
     }
 
+    .voar {
+        display: none;
+    }
+
+    #images-flutuantes {
+        display: flex  ;
+    }
+
 
 }
 
@@ -125,6 +206,10 @@
         font-size: 15px;
     }
 
+    #images-flutuantes img {
+        width: 120px; height: 120px;
+    }
+
 }
 
 /* Small Size */
@@ -136,6 +221,10 @@
 
     .grid-text p {
         font-size: 13px;
+    }
+
+    #images-flutuantes img {
+        width: 100px; height: 100px;
     }
 
 
