@@ -36,45 +36,6 @@ areas_dict = {
 }
 
 
-equips_dict = {
-    "Óculos VR": {
-        "image": "../static/assets/oculos.png",
-        "conteudo": "Os óculos 3D criam profundidade ao projetar imagens diferentes para cada olho, aprimorando a imersão visual.",
-    },
-    "Mouse 3D": {
-        "image": "../static/assets/mouse.png",
-        "conteudo": "Os mouses 3D oferecem controle preciso em ambientes virtuais, permitindo movimentos em todas as direções.",
-    },
-    "Luvas": {
-        "image": "../static/assets/luvas.png",
-        "conteudo": "As luvas 3D capturam movimentos manuais, permitindo interação natural e precisa com ambientes virtuais.",
-    },
-    "Teclados": {
-        "image": "../static/assets/teclado.jpg",
-        "conteudo": "Permitem entrada de comandos e dados para interação com sistemas virtuais, similar a um ambiente tradicional.",
-    },
-    "Rastreadores": {
-        "image": "../static/assets/rastreador.jpg",
-        "conteudo": "Monitoram e registram o movimento do usuário, integrando-o com o ambiente virtual para uma experiência mais dinâmica.",
-    },
-    "Reconhecedores de Voz": {
-        "image": "../static/assets/alexa.jpg",
-        "conteudo": "Capturam comandos de voz, possibilitando controle por meio de comandos falados.",
-    },
-    "Displays visuais": {
-        "image": "../static/assets/displayVisual.jpg",
-        "conteudo": "Oferecem uma experiência visual imersiva.",
-    },
-    "Displays de áudio": {
-        "image": "../static/assets/fone.jpg",
-        "conteudo": "Proporcionam um som espacial envolvente.",
-    },
-    "Displays hápticos": {
-        "image": "../static/assets/hapticos.jpg",
-        "conteudo": "Simulam sensações táteis, adicionando uma dimensão extra à interação.",
-    }
-}
-
 @app.route('/salvar-avatar', methods=['POST'])
 def salvar_avatar():
     try:
@@ -124,7 +85,7 @@ def baixar_avatar():
 
 @app.route("/")
 def index():
-    return render_template("index.html", areas_dict=areas_dict, equips_dict = equips_dict)
+    return render_template("index.html", areas_dict=areas_dict)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
