@@ -15,14 +15,19 @@
 }
 
 #container-espaco {
+    overflow: hidden;
+    z-index: 100;
     width: 100%;
-    height: 38em;
     background-color: var(--white);
     border-radius: 20px;
     border: 3px solid transparent;
     background-image: linear-gradient(white, white), linear-gradient(to bottom right, #00D4FF, #000000);
     background-origin: border-box;
     background-clip: padding-box, border-box; 
+}
+
+.no-scroll {
+    overflow: hidden;
 }
 
 .header-espaco {
@@ -53,6 +58,7 @@
     padding-right: 20px;
     gap: 20px;
 }
+
 
 /* Large Size */
 @media screen and  (max-width: 992px) {
