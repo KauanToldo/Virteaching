@@ -73,6 +73,37 @@
     cursor: pointer;
 }
 
+.custom-button {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00e5d5; /* Cor de fundo */
+    color: #000; /* Cor do texto */
+    border: none;
+    border-radius: 25px; /* Borda arredondada */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .custom-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Efeito ao passar o mouse */
+  }
+
+  .custom-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Efeito ao clicar */
+  }
+
+  .material-icons {
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+  }
+
 /* Large Size */
 @media screen and  (max-width: 992px) {
 

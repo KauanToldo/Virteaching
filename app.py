@@ -1,8 +1,11 @@
-from flask import Flask
+from flask import Flask, request, send_file, jsonify, url_for
+from flask_cors import CORS
+import requests
+import os
 from flask import render_template
 
-
 app = Flask(__name__)
+CORS(app)
 
 areas_dict = {
     "Construção Civil": {
@@ -72,7 +75,52 @@ equips_dict = {
     }
 }
 
+@app.route('/salvar-avatar', methods=['POST'])
+def salvar_avatar():
+    try:
+        data = request.get_json()
+        url = data.get('avatar_url')
+        print(url)
+        
+        if not url:
+            return jsonify({"error": "URL não fornecida"}), 400
 
+        response = requests.get(url, stream=True)
+        if response.status_code != 200:
+            return jsonify({"error": "Não foi possível baixar o arquivo"}), 400
+
+        filename = "avatar.glb"
+        filepath = os.path.join("downloads", filename)
+        os.makedirs("downloads", exist_ok=True)
+
+        with open(filepath, 'wb') as file:
+            for chunk in response.iter_content(chunk_size=1024):
+                file.write(chunk)
+
+        download_url = url_for('baixar_avatar', _external=True)
+        return jsonify({"download_url": download_url})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/baixar-avatar', methods=['GET'])
+def baixar_avatar():
+    try:
+        filename = "avatar.glb"
+        filepath = os.path.join("downloads", filename)
+
+        if not os.path.exists(filepath):
+            return jsonify({"error": "Arquivo não encontrado"}), 404
+
+        return send_file(
+            filepath,
+            as_attachment=True,
+            download_name=filename,
+            mimetype="model/gltf-binary"
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
 
 @app.route("/")
 def index():

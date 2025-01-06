@@ -31,6 +31,8 @@ function subscribe(event) {
         document.querySelector("#close-avatar").style.display = "none";
         document.getElementById("avatarViewer").src = json.data.url;
         document.getElementById("avatarViewer").style.display = "block"
+        document.querySelector('#continer-buttons-avatar').style.display = "flex"
+        document.querySelector('#container-frame').style.justifyContent = "flex-start";
     }
 
     // Get user id
@@ -51,7 +53,7 @@ document.querySelector("#btn-open-avatar").addEventListener("click", () => {
     const btnCloseAvatar = document.querySelector("#close-avatar")
 
     document.getElementById('frame').hidden = false;
-    document.querySelector("#btn-open-avatar").hidden = true;
+    document.querySelector("#btn-open-avatar").style.display = 'none';
     btnCloseAvatar.style.display = "block";
 })
 
@@ -59,6 +61,49 @@ document.querySelector("#close-avatar").addEventListener("click", () => {
     const btnCloseAvatar = document.querySelector("#close-avatar")
 
     document.getElementById('frame').hidden = true;
-    document.querySelector("#btn-open-avatar").hidden = false;
+    document.querySelector("#btn-open-avatar").style.display = 'block';
     btnCloseAvatar.style.display = "none";
 })
+
+document.querySelector('#select-other-btn').addEventListener("click", () => {
+    document.querySelector('#continer-buttons-avatar').style.display = "none"
+    frame.src = `https://${subdomain}.readyplayer.me/avatar?frameApi`;
+    document.getElementById('frame').hidden = false;
+    document.getElementById("avatarViewer").style.display = "none"
+})
+
+document.querySelector('#save-btn').addEventListener("click", () => {
+    let url = document.getElementById("avatarViewer").src
+    salvarAvatar(url)
+})
+
+async function salvarAvatar(avatarUrl) {
+    try {
+        const response = await fetch("http://localhost:5000/salvar-avatar", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            avatar_url: avatarUrl,
+          }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            const downloadUrl = data.download_url;
+
+            if (downloadUrl) {
+                window.location.href = downloadUrl;
+            } else {
+                alert("Erro: URL de download não encontrada.");
+            }
+        } else {
+            const errorData = await response.json();
+            alert(`Erro ao salvar o avatar: ${errorData.error}`);
+        }
+    
+      } catch (err) {
+        console.error("Erro:", err);
+      }
+}
