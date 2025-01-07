@@ -104,6 +104,40 @@
     margin-right: 10px; /* Espaçamento entre o ícone e o texto */
   }
 
+#share-buttons {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    gap: 20px;
+}
+
+#share-buttons i {
+    cursor: pointer;
+}
+
+.notificacao {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s, transform 0.5s ease-in-out;
+    z-index: 9999;
+  }
+  
+  /* Estilo para a notificação quando visível */
+  .notificacao.show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
 /* Large Size */
 @media screen and  (max-width: 992px) {
 

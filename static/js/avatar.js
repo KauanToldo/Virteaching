@@ -96,7 +96,7 @@ async function salvarAvatar(avatarUrl) {
             if (downloadUrl) {
                 window.location.href = downloadUrl;
             } else {
-                alert("Erro: URL de download não encontrada.");
+                alert("Erro: URL de download não encontrada.") ;
             }
         } else {
             const errorData = await response.json();
@@ -106,4 +106,119 @@ async function salvarAvatar(avatarUrl) {
       } catch (err) {
         console.error("Erro:", err);
       }
+}
+
+document.querySelector("#share-btn").addEventListener('click', () => {
+    if (document.querySelector('#share-buttons').style.display == 'flex') {
+        document.querySelector('#share-buttons').style.display = 'none'
+    } else {
+        document.querySelector('#share-buttons').style.display = 'flex'
+    }
+})
+
+document.querySelector("#whats").addEventListener("click", () => {
+    let urlAvatar = document.getElementById("avatarViewer").src
+    window.open(`https://wa.me/?text=Olhe meu avatar clicando neste link: http://127.0.0.1:5000/ver-avatar?link=${encodeURIComponent(urlAvatar)}`)
+})
+
+document.getElementById('copy').addEventListener('click', function() {
+    // Seleciona o texto que você quer copiar
+    let urlAvatar = document.getElementById("avatarViewer").src
+  
+    // Tenta copiar o texto para a área de transferência
+    navigator.clipboard.writeText(urlAvatar).then(function() {
+        const notificacao = document.getElementById('notificacao');
+        notificacao.classList.add('show');
+
+        // Esconder a notificação após 3 segundos
+        setTimeout(function() {
+        notificacao.classList.remove('show');
+        }, 3000);
+    }).catch(function(err) {
+      alert('Falha ao copiar o texto: ' + err);
+    });
+  });
+
+document.querySelector('#print-btn').addEventListener('click', () => {
+    let urlAvatar = document.getElementById("avatarViewer").src
+    urlAvatar = urlAvatar.split('/').pop().split('.glb')[0];
+    let request = `https://models.readyplayer.me/${urlAvatar}.png`
+    printImage(request)
+})
+
+async function enviarImagem2D(link) {
+    try {
+        const response = await fetch("http://localhost:5000/salvar-imagem", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            link_imagem: link,
+          }),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            const downloadUrl = data.download_url;
+            console.log(data)
+
+            if (downloadUrl) {
+                const baixarResponse = await fetch("http://localhost:5000/baixar-imagem", {
+                    method: "GET",
+                });
+
+                if (baixarResponse.ok) {
+                    const baixarData = await baixarResponse.json();
+                    const link_imagem = baixarData.arquivo;  // Pega o 'filepath' aqui
+                    console.log("Caminho do arquivo:", link_imagem);
+
+                } else {
+                    alert(`Erro ao baixar a imagem: ${baixarResponse.statusText}`);
+                }
+            } else {
+                alert("Erro: URL de download não encontrada.") ;
+            }
+        } else {
+            const errorData = await response.json();
+            alert(`Erro ao salvar a imagem: ${errorData.error}`);
+        }
+    
+      } catch (err) {
+        console.error("Erro:", err);
+      } 
+}
+
+function printImage(image) {
+    const originalContent = document.body.innerHTML;
+    const imgHTML = `<img src="${image}" alt="Imagem a ser impressa" style="max-width:100%;height:auto;margin:20px 0;">;`
+    document.body.innerHTML = `
+        <html>
+            <head>
+                <style>
+                    body {
+                        text-align: center;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    img {
+                        max-width: 100%;
+                        height: 90vh;
+                        margin: 20px 0;
+                    }
+                </style>
+            </head>
+            <body>
+                ${imgHTML}
+            </body>
+        </html>
+    `
+    window.print();
+
+    // Restaura o conteúdo original da página
+    document.body.innerHTML = originalContent;
+
+    // Reanexa os scripts e eventos
+    location.reload();
+
 }

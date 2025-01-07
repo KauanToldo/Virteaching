@@ -3,6 +3,7 @@ from flask_cors import CORS
 import requests
 import os
 from flask import render_template
+import urllib
 
 app = Flask(__name__)
 CORS(app)
@@ -34,7 +35,6 @@ areas_dict = {
         "conteudo": "Com base nos resultados obtidos do projeto VIDA e de iniciativas semelhantes, foi desenvolvido o VIDA Odonto, um protótipo de um ambiente virtual imersivo. Esse módulo utiliza interação tridimensional para o treinamento em anestesia odontológica, proporcionando maior eficácia e realismo ao aprendizado. Além disso, oferece uma avaliação automática para a precisão dos procedimentos realizados pelo estudante, permitindo a gravação para futura avaliação (TORI et al., 2018)."
     }
 }
-
 
 @app.route('/salvar-avatar', methods=['POST'])
 def salvar_avatar():
@@ -82,6 +82,55 @@ def baixar_avatar():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+@app.route('/ver-avatar', methods=['GET'])
+def ver_avatar():
+    link_codificado = request.args.get('link')
+    
+    if link_codificado:
+        # Decodifica o link
+        link_decodificado = urllib.parse.unquote(link_codificado)
+        # Aqui você pode processar o link conforme necessário
+        return render_template('avatar.html', url = link_decodificado)
+    
+@app.route('/salvar-imagem', methods=['POST'])
+def salvar_imagem():
+    try:
+        data = request.get_json()
+        imagem = data.get('link_imagem')
+        
+        if not imagem:
+            return jsonify({"error": "Imagem não fornecida"}), 400
+
+        response = requests.get(imagem, stream=True)
+        if response.status_code != 200:
+            return jsonify({"error": "Não foi possível baixar o arquivo"}), 400
+
+        filename = "avatar2D.png"
+        filepath = os.path.join("downloads", filename)
+        os.makedirs("downloads", exist_ok=True)
+
+        with open(filepath, 'wb') as file:
+            for chunk in response.iter_content(chunk_size=1024):
+                file.write(chunk)
+
+        download_url = url_for('baixar_imagem', _external=True)
+        return jsonify({"download_url": download_url})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/baixar-imagem', methods=['GET'])
+def baixar_imagem():
+    try:
+        filename = "avatar2D.png"
+        filepath = os.path.join("downloads", filename)
+
+        if not os.path.exists(filepath):
+            return jsonify({"error": "Arquivo não encontrado"}), 404
+
+        return jsonify({'arquivo': filepath}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route("/")
 def index():

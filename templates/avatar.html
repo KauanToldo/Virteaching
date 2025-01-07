@@ -7,14 +7,16 @@
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
     <title>Olhe meu avatar!</title>
 </head>
-<body>
+<body style="width: 100vw; height: 100vh; margin: 0; padding: 0;">
+    {% block conteudo %}
     <model-viewer
         id="avatarViewer"
-        src=""
+        src="{{ url }}"
         alt="Avatar 3D"
         auto-rotate
         camera-controls
-        style="width: 50%; height: 100%; display: none;">
+        style="width: 100%; height: 100%; display: block;">
     </model-viewer>
+    {% endblock %}
 </body>
 </html>
