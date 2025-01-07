@@ -146,49 +146,6 @@ document.querySelector('#print-btn').addEventListener('click', () => {
     printImage(request)
 })
 
-async function enviarImagem2D(link) {
-    try {
-        const response = await fetch("http://localhost:5000/salvar-imagem", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            link_imagem: link,
-          }),
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            const downloadUrl = data.download_url;
-            console.log(data)
-
-            if (downloadUrl) {
-                const baixarResponse = await fetch("http://localhost:5000/baixar-imagem", {
-                    method: "GET",
-                });
-
-                if (baixarResponse.ok) {
-                    const baixarData = await baixarResponse.json();
-                    const link_imagem = baixarData.arquivo;  // Pega o 'filepath' aqui
-                    console.log("Caminho do arquivo:", link_imagem);
-
-                } else {
-                    alert(`Erro ao baixar a imagem: ${baixarResponse.statusText}`);
-                }
-            } else {
-                alert("Erro: URL de download não encontrada.") ;
-            }
-        } else {
-            const errorData = await response.json();
-            alert(`Erro ao salvar a imagem: ${errorData.error}`);
-        }
-    
-      } catch (err) {
-        console.error("Erro:", err);
-      } 
-}
-
 function printImage(image) {
     const originalContent = document.body.innerHTML;
     const imgHTML = `<img src="${image}" alt="Imagem a ser impressa" style="max-width:100%;height:auto;margin:20px 0;">;`
@@ -213,12 +170,10 @@ function printImage(image) {
             </body>
         </html>
     `
+    
     window.print();
 
-    // Restaura o conteúdo original da página
     document.body.innerHTML = originalContent;
 
-    // Reanexa os scripts e eventos
     location.reload();
-
 }

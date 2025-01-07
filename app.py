@@ -91,46 +91,6 @@ def ver_avatar():
         link_decodificado = urllib.parse.unquote(link_codificado)
         # Aqui você pode processar o link conforme necessário
         return render_template('avatar.html', url = link_decodificado)
-    
-@app.route('/salvar-imagem', methods=['POST'])
-def salvar_imagem():
-    try:
-        data = request.get_json()
-        imagem = data.get('link_imagem')
-        
-        if not imagem:
-            return jsonify({"error": "Imagem não fornecida"}), 400
-
-        response = requests.get(imagem, stream=True)
-        if response.status_code != 200:
-            return jsonify({"error": "Não foi possível baixar o arquivo"}), 400
-
-        filename = "avatar2D.png"
-        filepath = os.path.join("downloads", filename)
-        os.makedirs("downloads", exist_ok=True)
-
-        with open(filepath, 'wb') as file:
-            for chunk in response.iter_content(chunk_size=1024):
-                file.write(chunk)
-
-        download_url = url_for('baixar_imagem', _external=True)
-        return jsonify({"download_url": download_url})
-
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-    
-@app.route('/baixar-imagem', methods=['GET'])
-def baixar_imagem():
-    try:
-        filename = "avatar2D.png"
-        filepath = os.path.join("downloads", filename)
-
-        if not os.path.exists(filepath):
-            return jsonify({"error": "Arquivo não encontrado"}), 404
-
-        return jsonify({'arquivo': filepath}), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
 
 @app.route("/")
 def index():
