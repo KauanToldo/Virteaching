@@ -147,9 +147,9 @@ document.querySelector('#print-btn').addEventListener('click', () => {
 })
 
 function printImage(image) {
-    const originalContent = document.body.innerHTML;
-    const imgHTML = `<img src="${image}" alt="Imagem a ser impressa" style="max-width:100%;height:auto;margin:20px 0;">;`
-    document.body.innerHTML = `
+    const newWindow = window.open('', '_blank');
+    const imgHTML = `<img src="${image}" alt="Imagem a ser impressa" style="max-width:100%;height:auto;margin:20px 0;">`
+    newWindow.document.write(`
         <html>
             <head>
                 <style>
@@ -160,7 +160,7 @@ function printImage(image) {
                     }
                     img {
                         max-width: 100%;
-                        height: 90vh;
+                        height: auto;
                         margin: 20px 0;
                     }
                 </style>
@@ -169,11 +169,8 @@ function printImage(image) {
                 ${imgHTML}
             </body>
         </html>
-    `
-    
-    window.print();
+    `);
+    newWindow.document.close();
+    newWindow.onload = () => newWindow.print();
 
-    document.body.innerHTML = originalContent;
-
-    location.reload();
 }
