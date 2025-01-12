@@ -1,12 +1,17 @@
-from flask import Flask, request, send_file, jsonify, url_for
+from flask import Flask, request, send_file, jsonify, url_for, render_template, Blueprint
+from flask_socketio import SocketIO, emit
 from flask_cors import CORS
 import requests
 import os
-from flask import render_template
 import urllib
+from database.db import db  # Certifique-se de que o módulo `db` está configurado corretamente
 
 app = Flask(__name__)
 CORS(app)
+app.config["DEBUG"] = True
+app.config["SECRET_KEY"] = "secret"
+
+socketio = SocketIO(app)
 
 areas_dict = {
     "Construção Civil": {
@@ -41,8 +46,6 @@ def salvar_avatar():
     try:
         data = request.get_json()
         url = data.get('avatar_url')
-        print(url)
-        
         if not url:
             return jsonify({"error": "URL não fornecida"}), 400
 
@@ -63,7 +66,7 @@ def salvar_avatar():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
+
 @app.route('/baixar-avatar', methods=['GET'])
 def baixar_avatar():
     try:
@@ -81,20 +84,124 @@ def baixar_avatar():
         )
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
+
 @app.route('/ver-avatar', methods=['GET'])
 def ver_avatar():
     link_codificado = request.args.get('link')
-    
     if link_codificado:
-        # Decodifica o link
         link_decodificado = urllib.parse.unquote(link_codificado)
-        # Aqui você pode processar o link conforme necessário
-        return render_template('avatar.html', url = link_decodificado)
+        return render_template('avatar.html', url=link_decodificado)
 
 @app.route("/")
 def index():
     return render_template("index.html", areas_dict=areas_dict)
 
+main = Blueprint("main", __name__)
+
+@main.route("/")
+def blueprint_index():
+    return render_template("index.html")
+
+app.register_blueprint(main)
+
+users = {}
+
+
+@app.route('/add_account', methods=['POST'])
+def add_account():
+    data = request.get_json() 
+    username = data.get("username")
+    password = data.get("password")
+
+    users_select = db.query('SELECT * FROM users');
+    caso = True;
+
+    if users_select == ():
+        print("Primeiro usuário inserido")
+        db.query("INSERT INTO users (id, nome, senha) VALUES (%s, %s, %s);",'default', username, password)
+        return jsonify({"message": "usuário 1 do banco"}), 200
+
+    else:
+        for users in users_select:
+            if  username ==  users.get('nome') or username == "":
+                print("Usuário existente ou usuário indefinido")
+                caso = False;
+                return jsonify({"message": "Usuário ja existe ou indefinido"}), 400
+
+        if caso:
+            db.query("INSERT INTO users (id, nome, senha) VALUES (%s, %s, %s);",'default', username, password)
+            print(f"Username: {username}, Password: {password}")
+            return jsonify({"message": "Conta adicionada com sucesso!"}), 200
+    
+
+@app.route('/validate_user', methods=['POST'])
+def validate_user():
+    data = request.get_json()
+    username = data.get("username")
+    senha = data.get("senha")
+    users_select = db.query('SELECT * FROM users')
+
+    for user in users_select:
+        if username == user.get("nome") and senha == user.get("senha"):
+            return jsonify({"status": "success", "message": "Usuário validado com sucesso."}), 200
+
+    return jsonify({"status": "error", "message": "Usuário ou senha inválidos."}), 400
+
+
+
+@app.route('/process-data', methods=['POST'])
+def process_data():
+    data = request.get_json()
+    span_value = data.get('span', '')
+    text_value = data.get('text', '')
+
+    # Deleting from the database (you can adjust this query to your DB)
+    db.query('DELETE FROM userMessage WHERE username = %s AND message = %s', span_value, text_value)
+
+    # Broadcast the deletion to all connected clients
+    socketio.emit('message_deleted', {'span': span_value, 'text': text_value})
+
+    return jsonify({
+        "message": "Dados recebidos com sucesso",
+        "span": span_value,
+        "text": text_value,
+        "success": True
+    })
+
+
+@socketio.on("connect")
+def handle_connect():
+    print("Client connected!")
+
+
+@socketio.on("user_join")
+def handle_user_join(username, senha):
+
+    users[request.sid] = username 
+    loader = db.query('SELECT * FROM userMessage')
+
+    if loader == ():
+        emit("chato", {"message": "Seja bem-vindo", "username": "Virteaching"})
+    
+    for load in loader:
+        message = load.get("message")
+        user_from_db = load.get("username")
+        emit("chato", {"message": message, "username": user_from_db, "set": username}) 
+
+        
+@socketio.on("new_message")
+def handle_new_message(message):
+    print(f"New message: {message}")
+    
+    username = users.get(request.sid) 
+    
+    if not username:
+        emit("chato", {"message": "Erro: usuário não encontrado", "username": "Virteaching"})
+        return
+    
+    db.query('INSERT INTO userMessage (id, username, message) VALUES (%s, %s, %s);', 'default', username, message)
+    emit("chato", {"message": message, "username": username, "set":username}, broadcast=True)
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    socketio.run(app, host='0.0.0.0', debug=True)

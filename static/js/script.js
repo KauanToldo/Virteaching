@@ -3,4 +3,4 @@ import './treinamento.js';
 import './returnTop.js'
 import './menu.js'
 import './avatar.js'
-
+import './chat.js'

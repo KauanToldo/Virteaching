@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="module" src="../static/js/script.js" defer></script>
     <title>Virteaching</title>
@@ -321,39 +322,62 @@
                 </div>
 
                 <div id="chat-container">
-                    <div id="msg-container">
-                        <div class="msg left">
-                            <div class="user-field">
-                                <span class="material-symbols-outlined user-image">person</span>
-                                <span class="name">Fulano</span>
+                    <div id="notificacaoChat" class="notificacao" >
+                        Usuário ou senha inválidos
+                      </div>
+                      <div id="notificacaoAcount" class="notificacao" >
+                        Usuário existente ou indefinido
+                      </div>
+
+                    <!-- <div id="msgem">
+                        <div class="body-msg">
+                            <div class="texts">
+                                <span class="name"></span>
+                                <p class="paragrafos"></p>
                             </div>
-                            <div class="body-msg">
-                                <p class="paragrafos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eveniet necessitatibus quae, ab sunt eaque magni optio possimus hic maiores enim magnam! At molestias a illum blanditiis. Quod, accusamus enim.</p>
-                            </div>
+                            <span id='expanded' class="material-symbols-outlined arrow-icon">expand_more</span>
                         </div>
-                        <div class="msg right">
-                            <div class="user-field right">
-                                <span class="material-symbols-outlined user-image">person</span>
+                    </div> -->
+
+                    <div id="msg-container" style="display: none;">
+
+                        <div id="chat-messages" class="chat-container"></div>
+                        
+                        <!-- <div class="msg right">
                                 <span class="name">Fulano</span>
-                            </div>
                             <div class="body-msg">
                                 <p class="paragrafos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eveniet necessitatibus quae, ab sunt eaque magni optio possimus hic maiores enim magnam! At molestias a illum blanditiis. Quod, accusamus enim.</p>
                             </div>
-                        </div>
-                        <div class="msg left">
-                            <div class="user-field">
-                                <span class="material-symbols-outlined user-image">person</span>
-                                <span class="name">Fulano</span>
-                            </div>
-                            <div class="body-msg">
-                                <p class="paragrafos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente eveniet necessitatibus quae, ab sunt eaque magni optio possimus hic maiores enim magnam! At molestias a illum blanditiis. Quod, accusamus enim.</p>
-                            </div>
+                        </div>-->
+                        <div id="fields" style="display: none;">
+                            <input id="message" type="text" placeholder="Digite sua mensagem">
+                            <button id="submit-msg"><span>Enviar</span></button>
                         </div>
                     </div>
-                    <div id="fields">
-                        <input id="msg-field" type="text" placeholder="Digite sua mensagem">
-                        <button id="submit-msg"><span>Enviar</span></button>
+                    
+
+                    <div class="left-infos">
+                        <img src="/static/assets/iconChat.png" alt="">
                     </div>
+                    <div class="right-infos">
+                        <h1>Quer participar do nosso chat? <br>
+                            Faça seu login abaixo!!
+                        </h1>
+                        <div class="landing" id="land1">
+                            <input type="text" id="username" placeholder="Nome" class="inputs">
+                            <input id="senha" type="password" placeholder="Senha" class="inputs">
+                            <button id="join-btn">Entrar</button>   
+                            <h5 class="Acount">Criar conta</h5>
+                        </div>
+
+                        <div class="landing" id="land2" style="display: none;">
+                            <input type="text" id="usernameCont" placeholder="Nome" class="inputs">
+                            <input id="senhaCont" type="password" placeholder="Senha" class="inputs">
+                            <button id="addAcount">Criar conta</button>   
+                            <h5 class="Acount">Já possuo conta</h5>
+                        </div>
+
+                    </div> 
                 </div>
             </section>
         </div>
