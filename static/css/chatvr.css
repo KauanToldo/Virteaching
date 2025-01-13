@@ -28,6 +28,7 @@
  .name {
     font-weight: 500;
     color: var(--light-blue);
+    text-transform: capitalize;
 }
 
 .body-msg {
@@ -40,6 +41,20 @@
     text-align: justify;
     line-height: 22px;
     display: flex;
+    flex-direction: column;
+    min-width: 10%;
+}
+
+.body-msg .paragrafos {
+    text-transform: capitalize;
+    margin-top: 18px;
+}
+
+.texts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #fields {

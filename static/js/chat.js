@@ -148,7 +148,6 @@ socket.on("chato", function(data) {
     paragraph.textContent = data['message']; // Mensagem do usuário
 
     textsContainer.appendChild(userName);
-    textsContainer.appendChild(paragraph);
 
     bodyMsg.appendChild(textsContainer);
 
@@ -157,14 +156,16 @@ socket.on("chato", function(data) {
         let arrowIcon = document.createElement("span");
         arrowIcon.className = "material-symbols-outlined";
         arrowIcon.id = 'expanded'
-        arrowIcon.textContent = "expand_more";
+        arrowIcon.textContent = "delete";
 
 
         divCont.className = 'right'
 
-        bodyMsg.appendChild(arrowIcon);
+        textsContainer.appendChild(arrowIcon);
         
     }
+
+    bodyMsg.appendChild(paragraph)
 
     divCont.appendChild(bodyMsg);
 
@@ -206,7 +207,7 @@ socket.on('message_deleted', (data) => {
 
 document.body.addEventListener("click", (event) => {
     if (event.target.classList.contains("material-symbols-outlined")) {
-        let sim = event.target.parentElement.children[0];
+        let sim = event.target.parentElement.parentElement.children[0];
         let span = sim.childNodes[0].textContent;
         let text = sim.childNodes[1].textContent.trim();
 
