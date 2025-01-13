@@ -147,19 +147,18 @@ def validate_user():
 
     return jsonify({"status": "error", "message": "Usuário ou senha inválidos."}), 400
 
-
-
 @app.route('/process-data', methods=['POST'])
 def process_data():
     data = request.get_json()
     span_value = data.get('span', '')
     text_value = data.get('text', '')
 
-    # Deleting from the database (you can adjust this query to your DB)
     db.query('DELETE FROM userMessage WHERE username = %s AND message = %s', span_value, text_value)
 
-    # Broadcast the deletion to all connected clients
-    socketio.emit('message_deleted', {'span': span_value, 'text': text_value})
+    socketio.emit('delete_message', {
+        "span": span_value,
+        "text": text_value
+    })
 
     return jsonify({
         "message": "Dados recebidos com sucesso",
@@ -178,6 +177,7 @@ def handle_connect():
 def handle_user_join(username, senha):
 
     users[request.sid] = username 
+
     loader = db.query('SELECT * FROM userMessage')
 
     if loader == ():
@@ -186,21 +186,19 @@ def handle_user_join(username, senha):
     for load in loader:
         message = load.get("message")
         user_from_db = load.get("username")
-        emit("chato", {"message": message, "username": user_from_db, "set": username}) 
+        emit("chato", {"message": message, "username": user_from_db, "set": username, "save": True}) 
 
         
 @socketio.on("new_message")
 def handle_new_message(message):
     print(f"New message: {message}")
-    
+
     username = users.get(request.sid) 
     
-    if not username:
-        emit("chato", {"message": "Erro: usuário não encontrado", "username": "Virteaching"})
-        return
-    
     db.query('INSERT INTO userMessage (id, username, message) VALUES (%s, %s, %s);', 'default', username, message)
-    emit("chato", {"message": message, "username": username, "set":username}, broadcast=True)
+    emit("chato", {"message": message, "username": username, "save" : False}, broadcast=True)
+
+
 
 
 if __name__ == '__main__':

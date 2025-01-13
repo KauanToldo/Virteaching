@@ -1,5 +1,8 @@
 const socket = io({autoConnect: false});
 
+let users = {}
+
+
 document.querySelector("#addAcount").addEventListener("click", () => {
     let user = document.querySelector("#usernameCont").value;
     let password = document.querySelector("#senhaCont").value;
@@ -64,6 +67,7 @@ document.querySelector("#join-btn").addEventListener("click", function() {
     .then(response => response.json())
     .then(data => {
         if (data.status == "success") {
+
             socket.connect();
 
             socket.on("connect", function() {
@@ -72,11 +76,9 @@ document.querySelector("#join-btn").addEventListener("click", function() {
         } else {
             console.log("Usuário ou senha inválidos");
           
-            // Mostra a notificação
             const notificacaoChat = document.getElementById('notificacaoChat');
             notificacaoChat.classList.add('show');
           
-            // Esconde a notificação após 3 segundos
             setTimeout(() => {
               notificacaoChat.classList.remove('show');
             }, 3000);
@@ -98,13 +100,11 @@ document.getElementById("message").addEventListener("keyup", function (event) {
     }
     if (event.key == "Enter") {
         let message = document.getElementById("message").value;
+        
         socket.emit("new_message", message);
         document.getElementById("message").value = "";
     }
 })
-socket.on("error", (data) => {
-    console.log("Usário invalido") 
-});
 
 document.getElementById("submit-msg").addEventListener("click", () => {
     if (document.getElementById("message").value == "") {
@@ -114,14 +114,21 @@ document.getElementById("submit-msg").addEventListener("click", () => {
     socket.emit("new_message", message);
     document.getElementById("message").value = "";
 })
+
 socket.on("error", (data) => {
     console.log("Usário invalido") 
 });
 
 
+let control = '';
+
 socket.on("chato", function(data) {
 
-    
+    if (data['save']){
+        control = data['set']
+    }
+
+    console.log(control)
 
     document.getElementById("msg-container").style.display = "flex";
     document.querySelector(".left-infos").style.display = "none";
@@ -131,33 +138,32 @@ socket.on("chato", function(data) {
     let divCont = document.createElement("div");
     divCont.id = "msgem";
 
-    // Cria o corpo da mensagem
     let bodyMsg = document.createElement("div");
     bodyMsg.className = "body-msg ";
 
-    // Cria o contêiner para os textos
     let textsContainer = document.createElement("div");
     textsContainer.className = "texts";
 
     let userName = document.createElement("span");
     userName.className = "name";
-    userName.textContent = data['username']; // Nome do usuário
+    userName.textContent = data['username'];
 
     let paragraph = document.createElement("p");
+    paragraph.setAttribute('data-span', data['username'])
+    paragraph.setAttribute('data-text', data['message'])
     paragraph.className = "paragrafos";
-    paragraph.textContent = data['message']; // Mensagem do usuário
+    paragraph.textContent = data['message']; 
 
     textsContainer.appendChild(userName);
 
     bodyMsg.appendChild(textsContainer);
 
-    if (data['username'] == data['set']){
+    if (data['username'] == control){
 
         let arrowIcon = document.createElement("span");
         arrowIcon.className = "material-symbols-outlined";
         arrowIcon.id = 'expanded'
         arrowIcon.textContent = "delete";
-
 
         divCont.className = 'right'
 
@@ -166,7 +172,6 @@ socket.on("chato", function(data) {
     }
 
     bodyMsg.appendChild(paragraph)
-
     divCont.appendChild(bodyMsg);
 
     let chatContainer = document.getElementById("chat-messages");
@@ -191,24 +196,10 @@ document.querySelectorAll(".Acount").forEach((toggleBtn) => {
     });
 });
 
-
-socket.on('message_deleted', (data) => {
-    // Handle the deletion by removing the relevant element
-    const elements = document.querySelectorAll(".message"); 
-    elements.forEach(element => {
-        const span = element.querySelector('span');
-        const text = element.querySelector('.text').textContent.trim();
-
-        if (span.textContent === data.span && text === data.text) {
-            element.remove();
-        }
-    });
-});
-
 document.body.addEventListener("click", (event) => {
     if (event.target.id == "expanded") {
-        let sim = event.target.parentElement.parentElement.children[0];
-        let span = sim.childNodes[0].textContent;
+        let sim = event.target.parentElement.parentElement.parentElement.children[0];
+        let span = sim.children[0].children[0].textContent;
         let text = sim.childNodes[1].textContent.trim();
 
         const data = { span, text };
@@ -220,20 +211,23 @@ document.body.addEventListener("click", (event) => {
             body: JSON.stringify(data)
         })
         .then(response => response.json())
-        .then(data => {
-            console.log("Resposta do Flask:", data);
-            if (data.success) {
-                event.target.parentElement.parentElement.parentElement.remove();
-            } else {
-                console.error("Erro no Flask:", data.message);
-            }
-        })
         .catch(error => {
             console.error("Erro ao enviar dados:", error);
         });
     }
 });
 
+socket.on('delete_message', (data) => {
+
+    const span = data.span;
+    const text = data.text;
+
+    const messageElement = document.querySelector(`[data-span="${span}"][data-text="${text}"]`).parentElement.parentElement;
+
+    if (messageElement) {
+      messageElement.remove(); 
+    }
+  });
 
 
 
