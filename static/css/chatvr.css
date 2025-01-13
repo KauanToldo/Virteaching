@@ -45,8 +45,11 @@
     min-width: 10%;
 }
 
+.paragrafos::first-letter {
+    text-transform: uppercase;
+  }
+
 .body-msg .paragrafos {
-    text-transform: capitalize;
     margin-top: 18px;
 }
 

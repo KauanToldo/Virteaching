@@ -2,9 +2,21 @@ let track = document.querySelector('.container-cards');
 let leftChevron = document.getElementById('left-chevron');
 let rightChevron = document.getElementById('right-chevron');
 
-
 let cardWidth = 300 + 10; 
 let positionInitial = 0; 
+
+// Função para atualizar cardWidth conforme o tamanho da tela
+function updateCardWidth() {
+    if (window.innerWidth < 578) {
+        cardWidth = 255 + 10; // Se a tela for menor que 578px, ajusta cardWidth
+    } else {
+        cardWidth = 300 + 10; // Valor padrão se a tela for maior ou igual a 578px
+    }
+}
+
+// Atualiza cardWidth ao carregar a página e sempre que a tela for redimensionada
+updateCardWidth();
+window.addEventListener('resize', updateCardWidth);
 
 rightChevron.addEventListener('click', () => {
     let trackWidth = track.scrollWidth; 
@@ -15,7 +27,6 @@ rightChevron.addEventListener('click', () => {
         track.style.transform = `translateX(${positionInitial}px)`;
     }
 });
-
 
 leftChevron.addEventListener('click', () => {
     if (positionInitial < 0) {

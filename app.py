@@ -194,9 +194,16 @@ def handle_new_message(message):
     print(f"New message: {message}")
 
     username = users.get(request.sid) 
-    
-    db.query('INSERT INTO userMessage (id, username, message) VALUES (%s, %s, %s);', 'default', username, message)
-    emit("chato", {"message": message, "username": username, "save" : False}, broadcast=True)
+
+    loader = db.query('SELECT * FROM userMessage')
+
+    if loader == ():
+        db.query('INSERT INTO userMessage (id, username, message) VALUES (%s, %s, %s);', 'default', username, message)
+        emit("chato", {"message": message, "username": username, "set": username, "save" : True}, broadcast=True)
+        return
+    else:
+        db.query('INSERT INTO userMessage (id, username, message) VALUES (%s, %s, %s);', 'default', username, message)
+        emit("chato", {"message": message, "username": username, "save" : False}, broadcast=True)
 
 
 

@@ -59,4 +59,32 @@ h4 {
     padding-left: 10px;
     padding-inline: 32px;
     cursor: pointer;
+    user-select: none   ;
 }
+
+/* Large Size */
+@media screen and  (max-width: 992px) {
+
+
+}
+
+/* Medium Size */
+@media screen and  (max-width: 768px) {
+    
+    }
+
+/* Small Size */
+@media screen and  (max-width: 576px) {
+    .cards {
+        width: 245px;
+    }
+
+    .cards img  {
+        width: 245px;
+    }
+
+    #container-equips span {
+        padding-inline: 10px;
+        font-size: 40px;
+    }
+    }
