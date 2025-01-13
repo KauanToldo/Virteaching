@@ -21,6 +21,7 @@
     height: 100%;
     overflow-y: auto;
     position: relative;
+    justify-content: space-between;
 }
 
 
@@ -45,15 +46,14 @@
     width: 100%; 
     display: flex;
     justify-content: space-between;
-    position: sticky; 
-    bottom: 0; 
+    align-self: flex-end;
     padding: 10px;
     background-color: var(--white); 
     z-index: 10;
 }
 
 #message {
-    width: 80%;
+    width: 85%;
     padding: 10px 20px;
     border-radius: 50px;
     border: none;
@@ -234,6 +234,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    height: 90%;
 }
 
 
@@ -242,6 +244,7 @@
     justify-self: end;
     flex-direction: row-reverse;
     width: 100%;
+    padding-right: 10px;
 }
 
 

@@ -93,6 +93,9 @@ document.querySelector("#join-btn").addEventListener("click", function() {
 
 
 document.getElementById("message").addEventListener("keyup", function (event) {
+    if (document.getElementById("message").value == "") {
+        return;
+    }
     if (event.key == "Enter") {
         let message = document.getElementById("message").value;
         socket.emit("new_message", message);
@@ -103,15 +106,27 @@ socket.on("error", (data) => {
     console.log("Usário invalido") 
 });
 
+document.getElementById("submit-msg").addEventListener("click", () => {
+    if (document.getElementById("message").value == "") {
+        return;
+    }
+    let message = document.getElementById("message").value;
+    socket.emit("new_message", message);
+    document.getElementById("message").value = "";
+})
+socket.on("error", (data) => {
+    console.log("Usário invalido") 
+});
+
 
 socket.on("chato", function(data) {
 
     
 
-    document.getElementById("msg-container").style.display = "block";
+    document.getElementById("msg-container").style.display = "flex";
     document.querySelector(".left-infos").style.display = "none";
     document.querySelector(".right-infos").style.display = "none";
-    document.querySelector("#fields").style.display = 'block';
+    document.querySelector("#fields").style.display = 'flex';
 
     let divCont = document.createElement("div");
     divCont.id = "msgem";
@@ -207,7 +222,7 @@ document.body.addEventListener("click", (event) => {
         .then(data => {
             console.log("Resposta do Flask:", data);
             if (data.success) {
-                event.target.parentElement.remove();
+                event.target.parentElement.parentElement.remove();
             } else {
                 console.error("Erro no Flask:", data.message);
             }
