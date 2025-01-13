@@ -206,7 +206,7 @@ socket.on('message_deleted', (data) => {
 });
 
 document.body.addEventListener("click", (event) => {
-    if (event.target.classList.contains("material-symbols-outlined")) {
+    if (event.target.id == "expanded") {
         let sim = event.target.parentElement.parentElement.children[0];
         let span = sim.childNodes[0].textContent;
         let text = sim.childNodes[1].textContent.trim();
