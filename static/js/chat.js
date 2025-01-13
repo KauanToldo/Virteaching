@@ -223,7 +223,7 @@ document.body.addEventListener("click", (event) => {
         .then(data => {
             console.log("Resposta do Flask:", data);
             if (data.success) {
-                event.target.parentElement.parentElement.remove();
+                event.target.parentElement.parentElement.parentElement.remove();
             } else {
                 console.error("Erro no Flask:", data.message);
             }
