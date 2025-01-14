@@ -131,12 +131,78 @@
     transition: opacity 0.5s, transform 0.5s ease-in-out;
     z-index: 9999;
   }
+
+
+  #btn-open-avatar {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px ;
+    font-weight: 400;
+    cursor: pointer;
+    transition: ease-in-out 1s;
+  }
+
+  #btn-open-avatar:hover {
+    background-color: #00D4FF;
+    
+  }
+
+  #btn-open-avatar:hover #title_button, #btn-open-avatar:hover  #subtitle_button {
+    color: #fff;
+    
+  }
+
+  #btn-open-avatar img {
+    width: 50px;
+    animation: clickEffect 0.9s infinite ease-in-out;
+  }
+
+  @keyframes clickEffect {
+    0% {
+        transform: scale(1); /* Estado inicial */
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: scale(0.9); /* Efeito de clique */
+        transform: rotateZ(-15deg);
+    }
+    100% {
+        transform: scale(1); /* Volta ao estado inicial */
+        transform: rotateX(0deg);
+    }
+}
+
   
-  /* Estilo para a notificação quando visível */
+
+  #title_button {
+    font-weight: 900;
+    color: rgb(123, 0, 255);
+    font-size: 35px;
+  }
+
+  #subtitle_button {
+    color: gray;
+    font-size: 18px;
+  }
+  
+
   .notificacao.show {
     opacity: 1;
     transform: translateX(0);
   }
+
+  #container-frame {
+    width: 100%; gap:35px; height: 100%; border-radius: 20px; position: relative; display: flex; justify-content: center; align-items: center;
+  }
+
+  
 
 /* Large Size */
 @media screen and  (max-width: 992px) {
@@ -150,6 +216,22 @@
         margin-bottom: 20px !important;
     }
 
+    #title_button {
+        font-size: 25px;
+    }
+
+    #subtitle_button {
+        font-size: 16px;
+        padding-inline: 20px;
+      }
+
+      .custom-button {
+        width: 300px;
+      }
+
+      #container-frame {
+        padding: 20px;
+      }
 }
 
 /* Small Size */
@@ -157,4 +239,26 @@
     .title-white-espaco {
         display: none;
     }
+
+    #container-frame {
+        display: flex;
+        flex-direction: column;
+
+      }
+
+      .custom-button {
+        width: 275px;
+        font-size: 13px;
+
+      }
+
+      #continer-buttons-avatar {
+        gap: 15px !important;
+      }
+
+      #avatarViewer {
+        width: 100%;
+        height: 50%;
+      }
 }
+

@@ -61,7 +61,7 @@ document.querySelector("#close-avatar").addEventListener("click", () => {
     const btnCloseAvatar = document.querySelector("#close-avatar")
 
     document.getElementById('frame').hidden = true;
-    document.querySelector("#btn-open-avatar").style.display = 'block';
+    document.querySelector("#btn-open-avatar").style.display = 'flex';
     btnCloseAvatar.style.display = "none";
 })
 
@@ -124,6 +124,7 @@ document.querySelector("#whats").addEventListener("click", () => {
 document.getElementById('copy').addEventListener('click', function() {
     // Seleciona o texto que você quer copiar
     let urlAvatar = document.getElementById("avatarViewer").src
+
   
     // Tenta copiar o texto para a área de transferência
     navigator.clipboard.writeText(urlAvatar).then(function() {
@@ -174,3 +175,6 @@ function printImage(image) {
     newWindow.onload = () => newWindow.print();
 
 }
+
+
+

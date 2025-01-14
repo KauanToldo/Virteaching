@@ -10,6 +10,8 @@
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
     <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+    <link rel="icon" href="../static/assets/logoAba.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="module" src="../static/js/script.js" defer></script>
     <title>Virteaching</title>
@@ -55,7 +57,7 @@
         <span class="material-symbols-outlined" id="tops" onclick="window.location.href='#'">keyboard_double_arrow_up</span>
 
         <div class="size-container" id="what-rv-container">
-            <section class="margin-section" id="what-rv-layout">
+            <section class="margin-section reveal" id="what-rv-layout">
                 <h3 class="subtitle-section">Tecnologia</h3>
                 <div id="what-rv">
                     <div>
@@ -67,7 +69,7 @@
             </section>
         </div>
         <div class="size-container" id="equipv-container">
-            <section class="margin-section" id="equipv-layout">
+            <section class="margin-section reveal" id="equipv-layout">
 
                 <h3 class="subtitle-section">Utilitários</h3>
                 <h1 class="title-section">Equipamentos Virtuais</h1>
@@ -88,7 +90,7 @@
             </section>
         </div>
         <div class="size-container" id="ensino-container">
-            <section class="margin-section" id="ensino-layout">
+            <section class="margin-section reveal" id="ensino-layout">
 
                 <img src="../static/assets/pcFlutuar.png" alt="" id="voar" class="voar">
                 <img src="../static/assets/mouseFlutuar.png" alt="" id="voar-2" class="voar">
@@ -124,7 +126,7 @@
             </section>
         </div>
         <div class="size-container" id="espaco-container">
-            <section class="margin-section" id="espaco-layout">
+            <section class="margin-section reveal" id="espaco-layout">
                 <h3 class="subtitle-section" id="blue">Espaço</h3>
                 <div class="title-container" id="margin">
                     <span class="material-symbols-outlined chat-icon">token</span>
@@ -142,17 +144,15 @@
                         </div>
                     </div>
                     <div style="width: 100%; height: 80vh; display: flex; justify-content: center; align-items: center; ">
-                        <div id="container-frame" style="width: 100%; gap:35px; height: 100%; border-radius: 20px; position: relative; display: flex; justify-content: center; align-items: center;">
+                        <div id="container-frame">
+                        
+                            <button id="btn-open-avatar">
+
+                                <span id="title_button">VIVA UMA EXPERIÊNCIA VIRTUAL INCRÍVEL!</span>
+                                <span id="subtitle_button">Clique no quadro e comece agora mesmo a criar seu avatar 3D totalmente personalizado!</span>
+                                <img src="/static/assets/clique.png" alt="">
                             
-                            <model-viewer
-                            id="avatarViewer"
-                            src="../static/assets/logo3D.glb"
-                            alt="Avatar 3D"
-                            auto-rotate
-                            camera-controls
-                            style="width: 50%; height: 50%;"
-                            ></model-viewer>
-                            <button id="btn-open-avatar" class="custom-button">Criar/Selecionar Avatar</button>
+                            </button>
 
                             <iframe id="frame" class="frame" allow="camera *; microphone *; clipboard-write" hidden></iframe>
                             <model-viewer
@@ -199,7 +199,7 @@
             </section>
         </div>
         <div class="size-container" id="treinamento-container">
-            <section class="margin-section" id="treinamento-layout">
+            <section class="margin-section reveal" id="treinamento-layout">
                 <h3 class="subtitle-section">Educação</h3>
                 <h1 class="title-section">Casos de Treinamento</h1>
                 <p class="text-padding"> A realidade virtual tem transformado a maneira como os profissionais são treinados em diversas áreas, oferecendo ambientes imersivos e seguros para o desenvolvimento de habilidades práticas. Abaixo, apresentamos alguns casos de uso da realidade virtual em setores como construção civil, engenharia, aviação, medicina e odontologia. </p>
@@ -225,7 +225,7 @@
             </section>
         </div>
         <div class="size-container" id="vd-container">
-            <section class="margin-section" id="vd-layout">
+            <section class="margin-section reveal" id="vd-layout">
                 <h3 class="subtitle-section">Educação</h3>
                 <h1 class="title-section" style="padding-bottom: 0;">Vantagens e desafios</h1>
                 <h1 class="title-section">da Utilização da Realidade Virtual</h1>
@@ -278,8 +278,8 @@
                 </div>
             </section>
         </div>
-        <div class="size-container" id="social-container">
-            <section class="margin-section" id="social-layout">
+        <div class="size-container " id="social-container">
+            <section class="margin-section reveal" id="social-layout">
                 <h3 class="subtitle-section">Educação</h3>
                 <h1 class="title-section">Consequências Sociais</h1>
                 <p class="text-padding"> Embora a realidade virtual ofereça muitos benefícios no treinamento profissional, seu uso extensivo pode ter consequências sociais importantes. A redução da interação humana durante o processo de ensino pode impactar negativamente o desenvolvimento de habilidades interpessoais e a capacidade de trabalhar em equipe, que são essenciais no ambiente profissional.</p>
@@ -316,7 +316,7 @@
         </div>
 
         <div class="size-container" id="chatvr-container">
-            <section class="margin-section" id="chatvr-layout">
+            <section class="margin-section reveal" id="chatvr-layout">
                 <div class="title-container">
                     <span class="material-symbols-outlined chat-icon">chat</span>
                     <h1 class="title-section-blue">ChatVR</h1>

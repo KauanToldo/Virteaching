@@ -96,6 +96,10 @@ def ver_avatar():
 def index():
     return render_template("index.html", areas_dict=areas_dict)
 
+
+
+
+
 main = Blueprint("main", __name__)
 
 @main.route("/")
@@ -204,7 +208,6 @@ def handle_new_message(message):
     else:
         db.query('INSERT INTO userMessage (id, username, message) VALUES (%s, %s, %s);', 'default', username, message)
         emit("chato", {"message": message, "username": username, "save" : False}, broadcast=True)
-
 
 
 

@@ -88,6 +88,18 @@ body {
     font-size: var(--font-size-text);
 }
 
+.reveal{
+    position: relative;
+    top: 150px;
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active{
+    top: 0;
+    opacity: 1;
+}
+
 /* Large Size */
 @media screen and  (max-width: 992px) {
     .margin-section {
@@ -161,4 +173,5 @@ body {
     padding: 10px;
     border-radius: 50%;
     z-index: 999;
+    user-select: none;
 }

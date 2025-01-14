@@ -124,14 +124,14 @@
   }
 
   #voar-2 {
-    right: 15vw;
+    right: 7vw;
     margin-top: 34em;
     animation: float2 3s ease-in-out infinite; 
   }
 
   #voar-3 {
-    left: 15vw;
-    margin-top: 50em;
+    left: 10vw;
+    margin-top: 55em;
     animation: float2 3s ease-in-out infinite;
   }
 

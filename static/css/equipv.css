@@ -59,7 +59,8 @@ h4 {
     padding-left: 10px;
     padding-inline: 32px;
     cursor: pointer;
-    user-select: none   ;
+    user-select: none;
+    
 }
 
 /* Large Size */
@@ -86,5 +87,6 @@ h4 {
     #container-equips span {
         padding-inline: 10px;
         font-size: 40px;
+    
     }
     }

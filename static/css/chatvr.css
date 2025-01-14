@@ -162,6 +162,7 @@
     width: 50%;
     padding: 10px 15px;
     border: solid 1px gray;
+    border-radius: 7px;
 }
 
 .landing button {
