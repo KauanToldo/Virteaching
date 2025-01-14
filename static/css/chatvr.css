@@ -24,6 +24,28 @@
     justify-content: space-between;
 }
 
+#chat-messages::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+  }
+
+  /* Estilização do trilho (track) */
+  #chat-messages::-webkit-scrollbar-track {
+    background: lightblue; /* Cor azul claro */
+}
+
+/* Estilização do polegar (thumb) */
+#chat-messages::-webkit-scrollbar-thumb {
+    background: white; /* Cor do polegar */
+    border-radius: 6px; /* Bordas arredondadas */
+    border: 2px solid lightblue; /* Adiciona uma borda para dar contraste */
+}
+
+/* Opcional: Estilo ao passar o mouse sobre o polegar */
+#chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #e0e0e0; /* Tom de cinza ao passar o mouse */
+}
+
+
 
  .name {
     font-weight: 500;

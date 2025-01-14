@@ -175,3 +175,24 @@ body {
     z-index: 999;
     user-select: none;
 }
+
+body::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+  }
+
+  /* Estilização do trilho (track) */
+body::-webkit-scrollbar-track {
+    background: lightblue; /* Cor azul claro */
+}
+
+/* Estilização do polegar (thumb) */
+body::-webkit-scrollbar-thumb {
+    background: white; /* Cor do polegar */
+    border-radius: 6px; /* Bordas arredondadas */
+    border: 2px solid lightblue; /* Adiciona uma borda para dar contraste */
+}
+
+/* Opcional: Estilo ao passar o mouse sobre o polegar */
+body::-webkit-scrollbar-thumb:hover {
+    background: #e0e0e0; /* Tom de cinza ao passar o mouse */
+}
